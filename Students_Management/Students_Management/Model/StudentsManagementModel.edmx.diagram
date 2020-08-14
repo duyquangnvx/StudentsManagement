@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e517a2a4adf04d7f846ba0da5ea3f91b" Name="Diagram1">
+        <EntityTypeShape EntityType="StudentManagementModel.BangDiem" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentManagementModel.ChucVu" Width="1.5" PointX="1.5" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentManagementModel.GiaoVien" Width="1.5" PointX="3.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentManagementModel.HeSo" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentManagementModel.HocKy" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentManagementModel.HocSinh" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentManagementModel.Khoi" Width="1.5" PointX="3.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentManagementModel.LopHoc" Width="1.5" PointX="6" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentManagementModel.MonHoc" Width="1.5" PointX="0.75" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentManagementModel.NamHoc" Width="1.5" PointX="0.75" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentManagementModel.PhanCong" Width="1.5" PointX="8.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentManagementModel.User" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="StudentManagementModel.FK_BangDiem_HeSo" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentManagementModel.FK_BangDiem_HocKy" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentManagementModel.FK_BangDiem_HocSinh" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentManagementModel.FK_BangDiem_MonHoc" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentManagementModel.FK_BangDiem_NamHoc" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentManagementModel.FK_User_ChucVu" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentManagementModel.FK_GiaoVien_User" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentManagementModel.FK_LopHoc_GiaoVien" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentManagementModel.FK_PhanCong_GiaoVien" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentManagementModel.FK_LopHoc_Khoi" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentManagementModel.FK_LopHoc_NamHoc" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentManagementModel.FK_PhanCong_LopHoc" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentManagementModel.FK_PhanCong_MonHoc" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentManagementModel.HocSinh_LopHoc" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

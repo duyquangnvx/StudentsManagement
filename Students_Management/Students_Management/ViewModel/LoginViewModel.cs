@@ -10,7 +10,7 @@ namespace Students_Management.ViewModel
     {
         public LoginViewModel()
         {
-
+            
         }
     }
 }
