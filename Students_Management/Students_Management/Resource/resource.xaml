@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Students_Management.Resource"
+                    xmlns:ViewModel="clr-namespace:Students_Management.ViewModel">
+    
+    <!-- List ViewModel -->
+    <ViewModel:LoginViewModel x:Key="LoginVM"></ViewModel:LoginViewModel>
+</ResourceDictionary>
