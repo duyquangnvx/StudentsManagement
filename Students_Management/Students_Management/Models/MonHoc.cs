@@ -7,32 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Students_Management.Model
+namespace Students_Management.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class LopHoc
+    public partial class MonHoc
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LopHoc()
+        public MonHoc()
         {
+            this.BangDiems = new HashSet<BangDiem>();
             this.PhanCongs = new HashSet<PhanCong>();
-            this.HocSinhs = new HashSet<HocSinh>();
         }
     
         public int Id { get; set; }
-        public string TenLop { get; set; }
-        public int IdGiaoVien { get; set; }
-        public Nullable<int> IdKhoi { get; set; }
-        public Nullable<int> IdNamHoc { get; set; }
+        public string TenMonHoc { get; set; }
+        public double DiemChuan { get; set; }
     
-        public virtual GiaoVien GiaoVien { get; set; }
-        public virtual Khoi Khoi { get; set; }
-        public virtual NamHoc NamHoc { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BangDiem> BangDiems { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PhanCong> PhanCongs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HocSinh> HocSinhs { get; set; }
     }
 }

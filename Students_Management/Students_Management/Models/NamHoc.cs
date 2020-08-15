@@ -7,27 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Students_Management.Model
+namespace Students_Management.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class MonHoc
+    public partial class NamHoc
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MonHoc()
+        public NamHoc()
         {
             this.BangDiems = new HashSet<BangDiem>();
-            this.PhanCongs = new HashSet<PhanCong>();
+            this.LopHocs = new HashSet<LopHoc>();
         }
     
         public int Id { get; set; }
-        public string TenMonHoc { get; set; }
-        public double DiemChuan { get; set; }
+        public Nullable<System.DateTime> NgayBatDau { get; set; }
+        public Nullable<System.DateTime> NgayKetThuc { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BangDiem> BangDiems { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhanCong> PhanCongs { get; set; }
+        public virtual ICollection<LopHoc> LopHocs { get; set; }
     }
 }

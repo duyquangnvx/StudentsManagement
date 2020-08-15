@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Students_Management"
              
-             StartupUri="View/LoginWindow.xaml">
+             StartupUri="Views/LoginWindow.xaml">
     
     <Application.Resources>
         <ResourceDictionary>

@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Document\Mine\Projects\Quản lý học sinh cấp 3\Students_Management\Students_Management\Model\StudentsManagementModel.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Document\Mine\Projects\Quản lý học sinh cấp 3\Students_Management\Students_Management\Models\StudentsManagementModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

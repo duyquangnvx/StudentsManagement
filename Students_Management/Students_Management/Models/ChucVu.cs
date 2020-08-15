@@ -7,24 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Students_Management.Model
+namespace Students_Management.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class HeSo
+    public partial class ChucVu
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public HeSo()
+        public ChucVu()
         {
-            this.BangDiems = new HashSet<BangDiem>();
+            this.Users = new HashSet<User>();
         }
     
         public int Id { get; set; }
-        public string TenHeSo { get; set; }
-        public Nullable<double> HeSo1 { get; set; }
+        public string TenChucVu { get; set; }
+        public string Mota { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BangDiem> BangDiems { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

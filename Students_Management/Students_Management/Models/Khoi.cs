@@ -7,23 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Students_Management.Model
+namespace Students_Management.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class HocKy
+    public partial class Khoi
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public HocKy()
+        public Khoi()
         {
-            this.BangDiems = new HashSet<BangDiem>();
+            this.LopHocs = new HashSet<LopHoc>();
         }
     
         public int Id { get; set; }
-        public string TenHocKy { get; set; }
+        public string TenKhoi { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BangDiem> BangDiems { get; set; }
+        public virtual ICollection<LopHoc> LopHocs { get; set; }
     }
 }

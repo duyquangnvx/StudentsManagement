@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Students_Management.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Students_Management.Model
+namespace Students_Management.Utils
 {
     public class DataProvider
     {

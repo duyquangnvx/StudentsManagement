@@ -78,23 +78,76 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="StudentsManagementModel.Context.cs">
+    <Compile Include="ViewModels\DialogViewModel.cs" />
+    <Compile Include="Dialogs\DialogWindow.xaml.cs">
+      <DependentUpon>DialogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\MyMessageBox.cs" />
+    <Compile Include="Implement\LoginImpl.cs" />
+    <Compile Include="Interfaces\ILogin.cs" />
+    <Compile Include="Models\BangDiem.cs">
+      <DependentUpon>StudentsManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChucVu.cs">
+      <DependentUpon>StudentsManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\DataProvider.cs" />
+    <Compile Include="Models\GiaoVien.cs">
+      <DependentUpon>StudentsManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HeSo.cs">
+      <DependentUpon>StudentsManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HocKy.cs">
+      <DependentUpon>StudentsManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HocSinh.cs">
+      <DependentUpon>StudentsManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Khoi.cs">
+      <DependentUpon>StudentsManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LopHoc.cs">
+      <DependentUpon>StudentsManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MonHoc.cs">
+      <DependentUpon>StudentsManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NamHoc.cs">
+      <DependentUpon>StudentsManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PhanCong.cs">
+      <DependentUpon>StudentsManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StudentsManagementModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StudentsManagementModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="StudentsManagementModel.Designer.cs">
+    <Compile Include="Models\StudentsManagementModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StudentsManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StudentsManagementModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StudentsManagementModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\BaseViewModel.cs" />
-    <Compile Include="ViewModel\LoginViewModel.cs" />
-    <Page Include="View\LoginWindow.xaml">
+    <Compile Include="Models\User.cs">
+      <DependentUpon>StudentsManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Page Include="Dialogs\DialogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MainWindow.xaml">
+    <Page Include="Views\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -102,10 +155,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\LoginWindow.xaml.cs">
+    <Compile Include="Views\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MainWindow.xaml.cs">
+    <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -137,11 +190,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <EntityDeploy Include="StudentsManagementModel.edmx">
+    <EntityDeploy Include="Models\StudentsManagementModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>StudentsManagementModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="StudentsManagementModel.edmx.diagram">
+    <None Include="Models\StudentsManagementModel.edmx.diagram">
       <DependentUpon>StudentsManagementModel.edmx</DependentUpon>
     </None>
   </ItemGroup>
@@ -149,13 +202,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="UC\" />
+    <Folder Include="Controls\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="StudentsManagementModel.Context.tt">
+    <Content Include="Models\StudentsManagementModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>StudentsManagementModel.Context.cs</LastGenOutput>
+      <DependentUpon>StudentsManagementModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\StudentsManagementModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StudentsManagementModel.edmx</DependentUpon>
+      <LastGenOutput>StudentsManagementModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
