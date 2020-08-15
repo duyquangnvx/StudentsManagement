@@ -15,7 +15,6 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen"
         
         Title="{Binding Path=Title, UpdateSourceTrigger=PropertyChanged}" 
         SizeToContent="WidthAndHeight"

@@ -52,7 +52,8 @@
                     Content="Đăng nhập"
                     materialDesign:ButtonAssist.CornerRadius="6"
                     Style="{StaticResource MaterialDesignRaisedButton}"
-                    Command="{Binding LoginCommand}"/>
+                    Command="{Binding LoginCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"/>
 
             <Button Grid.Row="4"
                     VerticalAlignment="Top" HorizontalAlignment="Center"

@@ -23,6 +23,7 @@ namespace Students_Management.Utils
             }
         }
 
+        public User My { get; set; }
         public StudentManagementEntities DB { get; set; }
 
         private DataProvider()

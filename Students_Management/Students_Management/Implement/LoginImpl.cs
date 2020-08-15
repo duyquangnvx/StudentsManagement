@@ -8,15 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Students_Management.Dialogs;
+using Students_Management.Views;
+using Students_Management.ViewModels;
 
 namespace Students_Management.Implement
 {
     public class LoginImpl : ILogin
     {
-        List<User> Users { get; set; }
+        public Window Window { get; set; }
+        private List<User> Users { get; set; }
 
         public LoginImpl()
-        { 
+        {
             if (DataProvider.Instance.DB.Database.Exists())
             {
                 Users = DataProvider.Instance.DB.Users.ToList();
@@ -38,14 +41,26 @@ namespace Students_Management.Implement
         }
         public void OnSuccess(User user)
         {
+            // Lưu dữ liệu người dùng
+            DataProvider.Instance.My = user;
+
             // Mở màn hình chính dựa theo chức vụ của user
-            MyMessageBox.Show("Đăng nhập thành công", "Đăng nhập thành công");
+            MainWindow view = new MainWindow();
+            MainViewModel viewModel = new MainViewModel();
+            view.DataContext = viewModel;
+            view.Show();
+
+            // Đóng màn hình đăng nhập
+            if (Window != null)
+            {
+                Window.Close();
+            }
+
         }
 
         public void OnFailure()
         {
-            // Thông báo tên đăng nhập hoặc mật khẩu không đúng
-            MyMessageBox.Show("Đăng nhập thất bại", "Tên đăng nhập hoặc mật khẩu không đúng");
+            MyMessageBox.Show(Window, "Đăng nhập thất bại", "Tên đăng nhập hoặc mật khẩu không đúng");
         }
     }
 }

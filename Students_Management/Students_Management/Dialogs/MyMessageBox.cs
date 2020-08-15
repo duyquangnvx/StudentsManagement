@@ -17,7 +17,8 @@ namespace Students_Management.Dialogs
         {
             DialogWindow dialog = new DialogWindow();
             dialog.Owner = owner;
-            dialog.DataContext = new DialogViewModel(title, message);       
+            dialog.WindowStartupLocation = dialog.Owner == null ? WindowStartupLocation.CenterScreen : WindowStartupLocation.CenterOwner;
+            dialog.DataContext = new DialogViewModel(title, message);
             dialog.ShowDialog();
         }
     }
