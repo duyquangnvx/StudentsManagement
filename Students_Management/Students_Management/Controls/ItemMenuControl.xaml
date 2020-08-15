@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="Students_Management.Controls.ItemMenuControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Students_Management.Controls"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             x:Name="itemMenuControl">
+    <Grid DataContext="{Binding Path=ItemMenu}">
+        <materialDesign:PackIcon Kind="{Binding Path=Icon}"
+                                 Width="15" Height="15" Margin="10 16" Foreground="White"/>
+        <ListBoxItem  Padding="37 14" FontSize="15" Foreground="White"/>
+        <Expander Visibility="{Binding Path= ExVisibility}" Header="{Binding Path=Header}" IsExpanded="False" Width="210" HorizontalAlignment="Right" Background="{x:Null}" Foreground="White">
+            <ListView SelectionMode="Single" SelectionChanged="ListView_SelectionChanged" 
+                      SelectedItem="{Binding Path=SelectedItem}" Visibility="{Binding ListVisibility}" ItemsSource="{Binding Path=SubItems}" Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=Name}" Padding="20 5"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+        </Expander>
+    </Grid>
+</UserControl>
