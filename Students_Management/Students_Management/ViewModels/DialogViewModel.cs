@@ -20,8 +20,15 @@ namespace Students_Management.ViewModels
         {
             Title = title;
             Message = message;
+
+            OKCommand = new RelayCommand<DialogWindow>(
+                (p) => { return true; },
+                (p) => OK(p));
         }
 
-        
+        private void OK(DialogWindow dialog)
+        {
+            dialog.Close();
+        }
     }
 }

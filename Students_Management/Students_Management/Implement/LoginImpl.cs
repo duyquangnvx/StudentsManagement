@@ -39,6 +39,7 @@ namespace Students_Management.Implement
         public void OnSuccess(User user)
         {
             // Mở màn hình chính dựa theo chức vụ của user
+            MyMessageBox.Show("Đăng nhập thành công", "Đăng nhập thành công");
         }
 
         public void OnFailure()
