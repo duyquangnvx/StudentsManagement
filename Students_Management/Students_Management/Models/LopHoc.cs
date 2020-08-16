@@ -23,7 +23,7 @@ namespace Students_Management.Models
     
         public int Id { get; set; }
         public string TenLop { get; set; }
-        public int IdGiaoVien { get; set; }
+        public Nullable<int> IdGiaoVien { get; set; }
         public Nullable<int> IdKhoi { get; set; }
         public Nullable<int> IdNamHoc { get; set; }
     
