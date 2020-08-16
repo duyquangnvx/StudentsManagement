@@ -3,12 +3,18 @@
                     xmlns:local="clr-namespace:Students_Management.Resource"
                     xmlns:ViewModel="clr-namespace:Students_Management.ViewModels" 
                     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-                    
+                    xmlns:converter="clr-namespace:Student_Manager.Converter"                    
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    
+    
                     >
 
     <!-- List ViewModel -->
     <ViewModel:LoginViewModel x:Key="LoginVM"/>
     <ViewModel:DialogViewModel x:Key="DialogVM"/>
     <ViewModel:MainViewModel x:Key="MainVM"/>
+    <converter:TwoRadioButtonConverter x:Key="TwoRadioButtonConverter"/>
+    <system:Boolean x:Key="True">True</system:Boolean>
+    <system:Boolean x:Key="False">False</system:Boolean>
 
 </ResourceDictionary>
