@@ -36,6 +36,7 @@
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                 Margin="0 40 0 0"  
                 materialDesign:ButtonAssist.CornerRadius="6"
+                IsDefault="True"
                 Content="OK"
                 Command="{Binding OKCommand}"
                 CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}">

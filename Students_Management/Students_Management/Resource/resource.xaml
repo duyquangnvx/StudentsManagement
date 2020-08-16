@@ -19,6 +19,7 @@
     <ViewModel:ClassListViewModel x:Key="ClassListVM"/>
     <ViewModel:AddClassViewModel x:Key="AddClassVM"/>
     <ViewModel:AssignSubjectTeacherForClass x:Key="AssignSubjectTeacherForClassVM"/>
+    <ViewModel:ProfileViewModel x:Key="ProfileVM"/>
     <converter:TwoRadioButtonConverter x:Key="TwoRadioButtonConverter"/>
     <converter:MultiParameterConverter x:Key="MultiParameterConverter"/>
     <converter:DateTimeConverter x:Key="DateTimeConverter"/>
