@@ -4,91 +4,114 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Students_Management.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             mc:Ignorable="d" d:DesignWidth="800"
+             FontSize="14"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             DataContext="{StaticResource AddUserVM}">
+             DataContext="{StaticResource AddUserVM}" Height="706.4"
+             >
 
-    <Grid Background="White">
+    <Grid Background="White" VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="60"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0" VerticalAlignment="Center" Margin="5 0 0 0" HorizontalAlignment="Left">
-            <TextBlock Text="Thêm học sinh" FontWeight="Bold" Foreground="{StaticResource PrimaryHueMidBrush}" FontSize="20"/>
+        <Grid Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Margin="5 0 0 0" HorizontalAlignment="Left">
+            <TextBlock Text="Thêm người dùng" FontWeight="Bold" Foreground="{StaticResource PrimaryHueMidBrush}" FontSize="20"/>
         </Grid>
 
-        <Grid Grid.Row="1" Margin="5">
+        <Grid Grid.Row="1" Grid.Column="1" Margin="5">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="250" MaxWidth="300"/>
-                <ColumnDefinition Width="250" MaxWidth="300"/>
+                <ColumnDefinition Width="*" MaxWidth="500" MinWidth="200"/>
+                <ColumnDefinition Width="*" MaxWidth="500" MinWidth="200"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="0" Orientation="Vertical">
-                <StackPanel Margin="0 10 0 0" Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Person" VerticalAlignment="Center"/>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="2*" MaxHeight="120"></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0"
+                            VerticalAlignment="Center" Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Person" Margin="0 0 10 0" VerticalAlignment="Center"/>
                     <TextBox Width="200" Margin="5 0 0 0" VerticalAlignment="Center" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              materialDesign:HintAssist.Hint="Họ Tên"
-                             Text="{Binding User.HoTen}"/>
+                             Text="{Binding User.HoTen}" Height="50"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Hashtag" VerticalAlignment="Center"/>
+                <StackPanel Grid.Row="1" Orientation="Horizontal"
+                            VerticalAlignment="Center">
+                    <materialDesign:PackIcon Kind="Hashtag" Margin="0 0 10 0" VerticalAlignment="Center"/>
                     <TextBox Width="200" Margin="5 0 0 0" VerticalAlignment="Center" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Tên đăng nhập" 
-                             Text="{Binding User.Username}"/>
+                             Text="{Binding User.Username}" Height="50"/>
                 </StackPanel>
 
-                <StackPanel Margin="0 10 0 0" Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Lock"  VerticalAlignment="Center"/>
-                    <PasswordBox Name="passwordBox" Width="200" Margin="5 0 0 0" VerticalAlignment="Center" 
+                <StackPanel Grid.Row="2" Margin="0 10 0 0"  Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Lock" Margin="0 0 10 0"  VerticalAlignment="Center"/>
+                    <PasswordBox Name="passwordBox" Width="200" Height="50" Margin="5 0 0 0" VerticalAlignment="Center" 
                              Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
                              materialDesign:HintAssist.Hint="Mật khẩu"
                              />
                 </StackPanel>
-                <StackPanel Margin="0 10 0 0" Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Email" VerticalAlignment="Center"/>
-                    <TextBox Width="200" Margin="5 0 0 0" VerticalAlignment="Center" 
+                <StackPanel Grid.Row="3" Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Email" Margin="0 0 10 0" VerticalAlignment="Center"/>
+                    <TextBox Width="200" Margin="5 0 10 0" VerticalAlignment="Center" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              materialDesign:HintAssist.Hint="Email"
-                             Text="{Binding User.Email}"/>
+                             Text="{Binding User.Email}" Height="50"/>
                 </StackPanel>
-                <StackPanel Margin="0 10 0 0" Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="AddressMarker" VerticalAlignment="Center"/>
-                    <TextBox Width="200" Margin="5 0 0 0" VerticalAlignment="Center" 
+                <StackPanel Grid.Row="4" Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="AddressMarker" Margin="0 0 10 0" VerticalAlignment="Center"/>
+                    <TextBox Width="200" Margin="5 0 10 0" VerticalAlignment="Stretch" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              materialDesign:HintAssist.Hint="Địa chỉ" 
-                             Text="{Binding User.DiaChi}"/>
+                             Text="{Binding User.DiaChi}" Height="80"/>
                 </StackPanel>
-            </StackPanel>
+            </Grid>
 
-            <StackPanel Grid.Column="1" Orientation="Vertical" Margin="39.6,0,-46.2,0">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                    <materialDesign:PackIcon Kind="DateRange" VerticalAlignment="Center"/>
-                    <DatePicker Width="200" Margin="5 0 0 0" VerticalAlignment="Center" 
+            <Grid Grid.Column="1" Margin="39.6,0,-46.2,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0"  Orientation="Horizontal" HorizontalAlignment="Left">
+                    <materialDesign:PackIcon Kind="DateRange" Margin="0 0 10 0" VerticalAlignment="Center"/>
+                    <DatePicker Width="200" Height="50" Margin="5,5,0,0.2" VerticalAlignment="Center" 
                              Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
                              materialDesign:HintAssist.Hint="Ngày Sinh" 
                              SelectedDate="{Binding User.NgaySinh}"/>
 
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal" Margin="0 25 0 0">
-                    <materialDesign:PackIcon Kind="GenderMaleFemale" VerticalAlignment="Center" Margin="0 0 5 0"/>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+                    <materialDesign:PackIcon Kind="GenderMaleFemale" Margin="0 0 10 0" VerticalAlignment="Center"/>
                     <RadioButton IsChecked="{Binding Path=User.GioiTinh, Converter={StaticResource TwoRadioButtonConverter}, ConverterParameter={StaticResource False}}" Content="Nam" Foreground="Black" Style="{StaticResource MaterialDesignRadioButton}"/>
                     <RadioButton IsChecked="{Binding Path=User.GioiTinh, Converter={StaticResource TwoRadioButtonConverter}, ConverterParameter={StaticResource True}}" Content="Nữ" Foreground="Black" Style="{StaticResource MaterialDesignRadioButton}"/>
                 </StackPanel>
-                <StackPanel Margin="0,10,-39.6,0" Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Phone" VerticalAlignment="Center"/>
-                    <TextBox Width="200" Margin="5 0 0 0" VerticalAlignment="Center" 
+                <StackPanel Grid.Row="2"  Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Phone" Margin="0 0 10 0" VerticalAlignment="Center"/>
+                    <TextBox Width="200" Margin="5,0,0,-8.4" VerticalAlignment="Center" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              materialDesign:HintAssist.Hint="Số điện thoại" 
-                             Text="{Binding User.Phone}"/>
+                             Text="{Binding User.Phone}" Height="50"/>
                 </StackPanel>
-                <StackPanel Margin="0,10,6.8,0" Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Class" VerticalAlignment="Center"/>
-                    <ComboBox Margin="5 0 0 0" Width="100" ItemsSource="{Binding Roles}"                          
+                <StackPanel Grid.Row="3" Margin="0,10,6.8,0" Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Class" Margin="0 0 10 0" VerticalAlignment="Center"/>
+                    <ComboBox Margin="5,-3,0,-3" Width="179"  Height="50" ItemsSource="{Binding Roles}"                          
                               materialDesign:HintAssist.Hint="Chức vụ"                       
                               Style="{StaticResource MaterialDesignFloatingHintComboBox}"                       
                               SelectedItem="{Binding User.ChucVu}">
@@ -99,12 +122,11 @@
                         </ComboBox.ItemTemplate>
                     </ComboBox>
                 </StackPanel>
-            </StackPanel>
-
+            </Grid>
 
         </Grid>
 
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="2" Grid.Column="1">
             <Button Margin="10" Width="100" Content="Thêm" HorizontalAlignment="Left"
                     Foreground="White" Background="{StaticResource PrimaryHueMidBrush}"
                     Command="{Binding AddUserCommand}"

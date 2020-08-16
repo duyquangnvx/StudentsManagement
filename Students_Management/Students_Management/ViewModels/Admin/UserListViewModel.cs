@@ -52,7 +52,7 @@ namespace Students_Management.ViewModels
             {
                 return DataProvider.Instance.DB.Users.ToList();
             } else {
-                return allUser.Where<User>(u => u.HoTen.Equals(name, StringComparison.OrdinalIgnoreCase)).ToList();
+                return allUser.Where<User>(u => u.HoTen.IndexOf(searchName, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
             }
         }
     }
