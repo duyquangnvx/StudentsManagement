@@ -81,6 +81,9 @@
     <Compile Include="Controls\ItemMenuControl.xaml.cs">
       <DependentUpon>ItemMenuControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ProfileControl.xaml.cs">
+      <DependentUpon>ProfileControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters\DateTimeConverter.cs" />
     <Compile Include="Converters\GenderConverter.cs" />
     <Compile Include="Converters\MultiParameterConverter.cs" />
@@ -150,10 +153,15 @@
     <Compile Include="ViewModels\ItemMenuViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\ProfileViewModel.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Controls\ItemMenuControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ProfileControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -18,7 +18,9 @@ namespace Students_Management.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
-        public User User { get; set; }
+        private User _user;
+        public User User { get => _user; set { _user = value; OnPropertyChanged(); } }
+        public static MainViewModel Instance { get; set; }
         /// <summary>
         /// Danh sách các tùy chọn của menu bên trái
         /// </summary>
@@ -32,6 +34,7 @@ namespace Students_Management.ViewModels
         public ICommand ProfileCommand { get; set; }
         public MainViewModel()
         {
+            Instance = this;
             User = DataProvider.Instance.My;
             InitMenu();
 
@@ -59,6 +62,18 @@ namespace Students_Management.ViewModels
 
                     // Đóng màn hình chính
                     p.Close();
+                });
+
+            ProfileCommand = new RelayCommand<object>(
+                (p) =>
+                {
+                    return true;
+                },
+                (p) =>
+                {
+                    ProfileControl profileUC = new ProfileControl();
+                    profileUC.DataContext = new ProfileViewModel(User);
+                    SwitchScreen(profileUC);
                 });
         }
 

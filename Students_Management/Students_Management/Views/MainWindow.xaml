@@ -17,7 +17,7 @@
         WindowStartupLocation="CenterScreen"    
         DataContext="{StaticResource MainVM}"
         
-        Title="Quản lý học sinh cấp 3" Height="600" Width="1024">
+        Title="Quản lý học sinh cấp 3" Height="760" Width="1280">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
@@ -30,10 +30,10 @@
       
         <materialDesign:ColorZone Mode="PrimaryMid" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock Text="{Binding Path=User.HoTen}" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding User.HoTen, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
                 <materialDesign:PopupBox  PlacementMode="RightAndAlignTopEdges"  VerticalAlignment="Center" Margin="10" >
                     <StackPanel Orientation="Vertical" Margin="8"  TextElement.FontSize="16">
-                        <Button Background="{x:Null}">
+                        <Button Background="{x:Null}" Command="{Binding ProfileCommand}">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="FaceProfile" Margin="0 0 20 0"/>
                                 <TextBlock Text="Thông tin cá nhân"/>

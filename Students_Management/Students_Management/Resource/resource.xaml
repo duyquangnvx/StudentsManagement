@@ -12,6 +12,7 @@
     <ViewModel:LoginViewModel x:Key="LoginVM"/>
     <ViewModel:DialogViewModel x:Key="DialogVM"/>
     <ViewModel:MainViewModel x:Key="MainVM"/>
+    <ViewModel:ProfileViewModel x:Key="ProfileVM"/>
     <converter:TwoRadioButtonConverter x:Key="TwoRadioButtonConverter"/>
     <converter:MultiParameterConverter x:Key="MultiParameterConverter"/>
     <system:Boolean x:Key="True">True</system:Boolean>
