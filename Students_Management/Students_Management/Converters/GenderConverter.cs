@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace Student_Manager.Converter
+namespace Students_Management.Converters
 {
     class GenderConverter : IValueConverter
     {

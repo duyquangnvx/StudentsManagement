@@ -24,19 +24,10 @@ namespace Students_Management.ViewModels
         /// Màn hình đang hiển thị
         /// </summary>
         public UserControl CurrentItemMenuUC { get; set; }
-
-        /// <summary>
-        /// Danh sách lớp quản lý của Giáo Vụ
-        /// </summary>
-        public List<LopHoc> Classes { get; set; }
-        /// <summary>
-        /// Danh sách học sinh quản lý của Giáo vụ
-        /// </summary>
-        public List<HocSinh> Students { get; set; }
         public MainViewModel()
         {
             User = DataProvider.Instance.My;
-            InitMenu();
+            InitMenu(); 
         }
 
 

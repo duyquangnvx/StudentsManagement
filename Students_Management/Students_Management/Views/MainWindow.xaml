@@ -13,7 +13,6 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        ResizeMode="NoResize"
         
         WindowStartupLocation="CenterScreen"    
         DataContext="{StaticResource MainVM}"
@@ -28,12 +27,20 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
-
+      
         <materialDesign:ColorZone Mode="PrimaryMid" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
-            <Grid>
-                <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" HorizontalAlignment="Right" Margin="10"/>
-            </Grid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="{Binding Path=User.Username}" VerticalAlignment="Center"/>
+                <materialDesign:PopupBox StaysOpen="True" PlacementMode="RightAndAlignTopEdges"  VerticalAlignment="Center" Margin="10">
+                    <StackPanel Orientation="Vertical" Margin="8">
+                        <Button Content="Settings" Background="{x:Null}"/>
+                        <Separator/>
+                        <Button Content="Settings" Background="{x:Null}"/>
+                        <Separator/>
+                        <Button Content="Settings" Background="{x:Null}"/>
+                    </StackPanel>
+                </materialDesign:PopupBox>
+            </StackPanel>
         </materialDesign:ColorZone>
 
 
@@ -45,7 +52,7 @@
 
             <Grid Grid.Row="0" Background="GhostWhite">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" FontFamily="Showcard Gothic">
-                Student <LineBreak/> Management
+                Quản Lý <LineBreak/> Học Sinh Cấp 3
                 </TextBlock>
             </Grid>
             <Grid Grid.Row="1">
