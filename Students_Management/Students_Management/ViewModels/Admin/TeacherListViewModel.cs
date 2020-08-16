@@ -54,7 +54,7 @@ namespace Students_Management.ViewModels
             }
             else
             {
-                return allTeacher.Where<GiaoVien>(u => u.HoTen.IndexOf(searchName, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+                return allTeacher.Where<GiaoVien>(u => u.User.HoTen.IndexOf(searchName, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
             }
         }
     }

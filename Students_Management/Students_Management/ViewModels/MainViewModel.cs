@@ -136,8 +136,8 @@ namespace Students_Management.ViewModels
             var teacherManagement = new ItemMenu("Quản lý giáo viên",
                 new List<SubItem>
                 {
-                    new SubItem("Danh sách giáo viên"),
-                    new SubItem("Phân công giảng dạy"),
+                    new SubItem("Danh sách giáo viên", new TeacherListUC()),
+                    new SubItem("Phân công giảng dạy", new AssignSubjectTeacherForClassUC()),
                     new SubItem("Phân công chủ nhiệm")
                 },
                 PackIconKind.Teacher
@@ -146,8 +146,8 @@ namespace Students_Management.ViewModels
             var classManagement = new ItemMenu("Quản lý lớp học",
                 new List<SubItem>
                 {
-                    new SubItem("Danh sách lớp học"),
-                    new SubItem("Thêm lớp học"),
+                    new SubItem("Danh sách lớp học", new ClassListUC()),
+                    new SubItem("Thêm lớp học", new AddClassUC()),
                 },
                 PackIconKind.Teacher
                 );
@@ -155,7 +155,7 @@ namespace Students_Management.ViewModels
             var subjectManagement = new ItemMenu("Quản lý môn học",
                 new List<SubItem>
                 {
-                    new SubItem("Danh sách môn học"),
+                    new SubItem("Danh sách môn học", new SubjectListUC()),
                     new SubItem("Thêm môn học"),
                 },
                 PackIconKind.Teacher

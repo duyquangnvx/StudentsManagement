@@ -76,7 +76,7 @@
             </Grid>
         </Grid>
 
-        <Grid Grid.Row="1" Grid.Column="1" Margin="10" HorizontalAlignment="Stretch">
+        <Grid Grid.Row="1" Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <ContentControl Content="{Binding CurrentItemMenuUC}"/>
         </Grid>
     </Grid>

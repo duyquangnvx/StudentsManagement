@@ -14,10 +14,16 @@
     <ViewModel:MainViewModel x:Key="MainVM"/>
     <ViewModel:AddUserViewModel x:Key="AddUserVM"/>
     <ViewModel:UserListViewModel x:Key="UserListVM"/>
+    <ViewModel:TeacherListViewModel x:Key="TeacherListVM"/>
+    <ViewModel:SubjectListViewModel x:Key="SubjectListVM"/>
+    <ViewModel:ClassListViewModel x:Key="ClassListVM"/>
+    <ViewModel:AddClassViewModel x:Key="AddClassVM"/>
+    <ViewModel:AssignSubjectTeacherForClass x:Key="AssignSubjectTeacherForClassVM"/>
     <converter:TwoRadioButtonConverter x:Key="TwoRadioButtonConverter"/>
     <converter:MultiParameterConverter x:Key="MultiParameterConverter"/>
     <converter:DateTimeConverter x:Key="DateTimeConverter"/>
     <converter:GenderConverter x:Key="GenderConverter"/>
+    <converter:SchoolYearConverter x:Key="SchoolYearConverter"/>
     <system:Boolean x:Key="True">True</system:Boolean>
     <system:Boolean x:Key="False">False</system:Boolean>
 
