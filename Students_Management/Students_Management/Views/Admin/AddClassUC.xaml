@@ -1,0 +1,97 @@
+﻿<UserControl x:Class="Students_Management.Views.Admin.AddClassUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Students_Management.Views.Admin"
+             mc:Ignorable="d" 
+             FontSize="14"
+             d:DesignHeight="450" d:DesignWidth="800" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             DataContext="{StaticResource AddClassVM}">
+
+    <Grid Background="White" Margin="0,0,0,-32.4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="1"  VerticalAlignment="Center" Margin="5 0 0 0" HorizontalAlignment="Left">
+            <TextBlock Text="Thêm học sinh" FontWeight="Bold" Foreground="{StaticResource PrimaryHueMidBrush}" FontSize="20"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250" MaxWidth="300"/>
+                <ColumnDefinition Width="250" MaxWidth="300"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Left"                         
+                        Width="240"
+                       >
+                <StackPanel Margin="0 20" Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Person" 
+                                             Margin="0 0 10 0"
+                                             VerticalAlignment="Center"/>
+                    <TextBox Width="205" Margin="5 0 0 0" VerticalAlignment="Center" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                             materialDesign:HintAssist.Hint="Tên lớp"
+                             Text="{Binding Class.TenLop}"/>
+                </StackPanel>
+                <StackPanel Margin="0 20" Orientation="Horizontal" 
+                            VerticalAlignment="Center">
+                    <materialDesign:PackIcon Kind="Class"
+                                             Margin="0 0 10 0" VerticalAlignment="Center"/>
+                    <ComboBox  Width="100" ItemsSource="{Binding Grades}"                          
+                              materialDesign:HintAssist.Hint="Khối"                       
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"                       
+                              SelectedItem="{Binding Class.Khoi}"
+                               Margin="5 0 0 0">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding TenKhoi}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 20" VerticalAlignment="Center">
+                    <materialDesign:PackIcon Kind="Number0Box"
+                                             Margin="0 0 10 0" VerticalAlignment="Center"/>
+                    <TextBox Width="200" Margin="5 0 0 0" VerticalAlignment="Center" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                             materialDesign:HintAssist.Hint="Sĩ số tối đa" 
+                             />
+                </StackPanel>
+
+                <StackPanel Margin="0 20" Orientation="Horizontal" VerticalAlignment="Center">
+                    <materialDesign:PackIcon Kind="Group"
+                                             Margin="0 0 0 0" VerticalAlignment="Center"/>
+                    <ComboBox Width="202" ItemsSource="{Binding Teachers}"                          
+                              materialDesign:HintAssist.Hint="GVCN"                       
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}"                       
+                              SelectedItem="{Binding Class.GiaoVien}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding User.HoTen}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+
+
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="1" >
+            <Button Margin="10" Width="100" Content="Thêm" HorizontalAlignment="Left"
+                    Foreground="White" Background="{StaticResource PrimaryHueMidBrush}"
+                    Command="{Binding AddClassCommand}">
+            </Button>
+        </Grid>
+
+    </Grid>
+</UserControl>
