@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             >
+             DataContext="{StaticResource AddUserVM}">
 
     <Grid Background="White">
         <Grid.RowDefinitions>
@@ -32,13 +32,13 @@
                     <TextBox Width="200" Margin="5 0 0 0" VerticalAlignment="Center" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              materialDesign:HintAssist.Hint="Họ Tên"
-                             Text="{Binding Name}"/>
+                             Text="{Binding User.HoTen}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Hashtag" VerticalAlignment="Center"/>
                     <TextBox Width="200" Margin="5 0 0 0" VerticalAlignment="Center" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Tên đăng nhập" 
-                             Text="{Binding Username}"/>
+                             Text="{Binding User.Username}"/>
                 </StackPanel>
 
                 <StackPanel Margin="0 10 0 0" Orientation="Horizontal">
@@ -53,48 +53,48 @@
                     <TextBox Width="200" Margin="5 0 0 0" VerticalAlignment="Center" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              materialDesign:HintAssist.Hint="Email"
-                             Text="{Binding Email}"/>
+                             Text="{Binding User.Email}"/>
                 </StackPanel>
                 <StackPanel Margin="0 10 0 0" Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="AddressMarker" VerticalAlignment="Center"/>
                     <TextBox Width="200" Margin="5 0 0 0" VerticalAlignment="Center" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              materialDesign:HintAssist.Hint="Địa chỉ" 
-                             Text="{Binding Address}"/>
+                             Text="{Binding User.DiaChi}"/>
                 </StackPanel>
             </StackPanel>
 
             <StackPanel Grid.Column="1" Orientation="Vertical" Margin="39.6,0,-46.2,0">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <materialDesign:PackIcon Kind="DateRange" VerticalAlignment="Center"/>
-                    <TextBox Width="200" Margin="5 0 0 0" VerticalAlignment="Center" 
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                             materialDesign:HintAssist.Hint="Ngày Sinh (yyyy/mm/dd)" 
-                             Text="{Binding Dob}"/>
+                    <DatePicker Width="200" Margin="5 0 0 0" VerticalAlignment="Center" 
+                             Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+                             materialDesign:HintAssist.Hint="Ngày Sinh" 
+                             SelectedDate="{Binding User.NgaySinh}"/>
 
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="0 25 0 0">
                     <materialDesign:PackIcon Kind="GenderMaleFemale" VerticalAlignment="Center" Margin="0 0 5 0"/>
-                    <RadioButton IsChecked="{Binding Path=Gender, Converter={StaticResource TwoRadioButtonConverter}, ConverterParameter={StaticResource False}}" Content="Nam" Foreground="Black" Style="{StaticResource MaterialDesignRadioButton}"/>
-                    <RadioButton IsChecked="{Binding Path=Gender, Converter={StaticResource TwoRadioButtonConverter}, ConverterParameter={StaticResource True}}" Content="Nữ" Foreground="Black" Style="{StaticResource MaterialDesignRadioButton}"/>
+                    <RadioButton IsChecked="{Binding Path=User.GioiTinh, Converter={StaticResource TwoRadioButtonConverter}, ConverterParameter={StaticResource False}}" Content="Nam" Foreground="Black" Style="{StaticResource MaterialDesignRadioButton}"/>
+                    <RadioButton IsChecked="{Binding Path=User.GioiTinh, Converter={StaticResource TwoRadioButtonConverter}, ConverterParameter={StaticResource True}}" Content="Nữ" Foreground="Black" Style="{StaticResource MaterialDesignRadioButton}"/>
                 </StackPanel>
                 <StackPanel Margin="0,10,-39.6,0" Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Phone" VerticalAlignment="Center"/>
                     <TextBox Width="200" Margin="5 0 0 0" VerticalAlignment="Center" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              materialDesign:HintAssist.Hint="Số điện thoại" 
-                             Text="{Binding Phone}"/>
+                             Text="{Binding User.Phone}"/>
                 </StackPanel>
                 <StackPanel Margin="0,10,6.8,0" Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Class" VerticalAlignment="Center"/>
                     <ComboBox Margin="5 0 0 0" Width="100" ItemsSource="{Binding Roles}"                          
                               materialDesign:HintAssist.Hint="Chức vụ"                       
                               Style="{StaticResource MaterialDesignFloatingHintComboBox}"                       
-                              SelectedItem="{Binding SelectedRole}">
+                              SelectedItem="{Binding User.ChucVu}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Name}"/>
+                                <TextBlock Text="{Binding TenChucVu}"/>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>

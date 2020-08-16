@@ -13,7 +13,6 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        ResizeMode="NoResize"
         
         WindowStartupLocation="CenterScreen"    
         DataContext="{StaticResource MainVM}"
@@ -28,12 +27,34 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
-
+      
         <materialDesign:ColorZone Mode="PrimaryMid" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
-            <Grid>
-                <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" HorizontalAlignment="Right" Margin="10"/>
-            </Grid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="{Binding Path=User.HoTen}" VerticalAlignment="Center"/>
+                <materialDesign:PopupBox  PlacementMode="RightAndAlignTopEdges"  VerticalAlignment="Center" Margin="10" >
+                    <StackPanel Orientation="Vertical" Margin="8"  TextElement.FontSize="16">
+                        <Button Background="{x:Null}">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="FaceProfile" Margin="0 0 20 0"/>
+                                <TextBlock Text="Thông tin cá nhân"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Background="{x:Null}">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Settings" Margin="0 0 20 0"/>
+                                <TextBlock Text="Cài đặt"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Background="{x:Null}" Command="{Binding LogoutCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Logout" Margin="0 0 20 0"/>
+                                <TextBlock Text="Đăng xuất"/>
+                            </StackPanel>
+                        </Button>
+                        
+                    </StackPanel>
+                </materialDesign:PopupBox>
+            </StackPanel>
         </materialDesign:ColorZone>
 
 
@@ -45,7 +66,7 @@
 
             <Grid Grid.Row="0" Background="GhostWhite">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" FontFamily="Showcard Gothic">
-                Student <LineBreak/> Management
+                Quản Lý <LineBreak/> Học Sinh Cấp 3
                 </TextBlock>
             </Grid>
             <Grid Grid.Row="1">

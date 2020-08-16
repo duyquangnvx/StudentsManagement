@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace Students_Management.ViewModels
@@ -42,13 +43,17 @@ namespace Students_Management.ViewModels
 
         private void InitCommands()
         {
-            LoginCommand = new RelayCommand<Window>(
-                (p) => { return Username != String.Empty && Password != String.Empty; },
+            LoginCommand = new RelayCommand<object[]>(
                 (p) => 
                 {
-                    LoginImpl.Window = p;
-
-                    LoginImpl.Login(Username, Password);
+                    string password = (p[1] as PasswordBox).Password;
+                    return Username != String.Empty && password != String.Empty;
+                },
+                (p) => 
+                {
+                    string password = (p[1] as PasswordBox).Password;
+                    LoginImpl.Window = p[0] as Window;
+                    LoginImpl.Login(Username, password);
                 });
 
             ForgotPasswordCommand = new RelayCommand<object>(

@@ -5,12 +5,15 @@ using Students_Management.Menu;
 using Students_Management.Models;
 using Students_Management.Utils;
 using Students_Management.Views;
+using Students_Management.Views.Admin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Students_Management.ViewModels
 {
@@ -26,27 +29,49 @@ namespace Students_Management.ViewModels
         /// </summary>
         public UserControl CurrentItemMenuUC { get; set; }
 
-        /// <summary>
-        /// Danh sách lớp quản lý của Giáo Vụ
-        /// </summary>
-        public List<LopHoc> Classes { get; set; }
-        /// <summary>
-        /// Danh sách học sinh quản lý của Giáo vụ
-        /// </summary>
-        public List<HocSinh> Students { get; set; }
+        public ICommand LogoutCommand { get; set; }
+        public ICommand ProfileCommand { get; set; }
         public MainViewModel()
         {
-            User = DataProvider.Instance.My;
+            User = new User()
+            {
+                ChucVu = new ChucVu() { TenChucVu = "Admin", Id = 1 }
+            };//DataProvider.Instance.My;
+
             InitMenu();
+            InitCommands();
         }
 
+        private void InitCommands()
+        {
+            LogoutCommand = new RelayCommand<Window>(
+                (p) =>
+                {
+                    return User != null;
+                },
+                (p) =>
+                {
+                    // Xóa thông người dùng
+                    User = null;
+                    DataProvider.Instance.My = null;
+
+                    // Mở màn hình login
+                    LoginViewModel loginVM = new LoginViewModel();
+                    LoginWindow loginWd = new LoginWindow();
+                    loginWd.DataContext = loginVM;
+                    loginWd.Show();
+
+                    // Đóng màn hình chính
+                    p.Close();
+                });
+        }
 
         /// <summary>
         /// Khởi tạo menu tùy chọn dựa theo chức vụ của user
         /// </summary>
         private void InitMenu()
         {
-            switch(User.ChucVu.Id)
+            switch (User.ChucVu.Id)
             {
                 case (int)Role.Admin:
                     InitAdminMenu();
@@ -70,16 +95,16 @@ namespace Students_Management.ViewModels
             // Menu danh sách lớp được phân công
             var assignmentMenu = new ItemMenu("Phân công",
                 new List<SubItem>
-                { 
-                    new SubItem("Danh sách lớp") , 
+                {
+                    new SubItem("Danh sách lớp") ,
                     new SubItem("Bảng điểm")
                 },
                 PackIconKind.ViewList);
 
             // Menu chủ nhiệm
             var homeroomMenu = new ItemMenu("Chủ nhiệm",
-                isSuperTeacher == false ? null : new List<SubItem> 
-                { 
+                isSuperTeacher == false ? null : new List<SubItem>
+                {
                     new SubItem("Thông tin lớp học"),
                     new SubItem("Danh sách học sinh"),
                     new SubItem("Bảng điểm")
@@ -101,7 +126,7 @@ namespace Students_Management.ViewModels
             var userManagement = new ItemMenu("Quản lý người dùng",
                 new List<SubItem>
                 {
-                    new SubItem("Danh sách người dùng"),
+                    new SubItem("Danh sách người dùng", new UserListUC()),
                     new SubItem("Thêm người dùng", new AddUserUC()),
                     new SubItem("Danh sách chặn")
                 },
@@ -170,16 +195,16 @@ namespace Students_Management.ViewModels
         private void InitMinistryMenu()
         {
             var studentMenu = new ItemMenu("Quản lý học sinh",
-                new List<SubItem> 
-                { 
+                new List<SubItem>
+                {
                     new SubItem("Danh sách học sinh"),
                     new SubItem("Thêm học sinh")
                 },
                 PackIconKind.Room);
 
             var classMenu = new ItemMenu("Quản lý lớp học",
-                new List<SubItem> 
-                { 
+                new List<SubItem>
+                {
                     new SubItem("Danh sách lớp"),
                     new SubItem("Lập danh sách lớp")
                 },

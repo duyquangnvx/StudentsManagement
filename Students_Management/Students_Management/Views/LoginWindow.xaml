@@ -18,7 +18,7 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"    
         DataContext="{StaticResource LoginVM}"
-        >
+        x:Name="LoginWd">
     <materialDesign:Card Margin="40">
         <Grid Margin="40">
             <Grid.RowDefinitions>
@@ -40,21 +40,28 @@
                  Text="{Binding Path=Username, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"
                  materialDesign:TextFieldAssist.TextFieldCornerRadius="6"/>
 
-            <TextBox Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Stretch"
-                 Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+            <PasswordBox x:Name="PasswordBox" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Stretch"
+                 Style="{StaticResource MaterialDesignOutlinedPasswordFieldPasswordBox}"
+                 
                  materialDesign:HintAssist.Hint="Mật khẩu"
-                 Text="{Binding Path=Password, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"
                  materialDesign:TextFieldAssist.TextFieldCornerRadius="6">
                  
-            </TextBox>
+            </PasswordBox>
             <Button Grid.Row="3"
                     FontSize="20"
                     Content="Đăng nhập"
                     materialDesign:ButtonAssist.CornerRadius="6"
                     Style="{StaticResource MaterialDesignRaisedButton}"
                     IsDefault="True"
-                    Command="{Binding LoginCommand}"
-                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"/>
+                    Command="{Binding LoginCommand}">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource MultiParameterConverter}">
+                        <Binding ElementName="LoginWd"/>
+                        <Binding ElementName="PasswordBox"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+                    
 
             <Button Grid.Row="4"
                     VerticalAlignment="Top" HorizontalAlignment="Center"
