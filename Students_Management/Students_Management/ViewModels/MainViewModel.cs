@@ -4,6 +4,7 @@ using Students_Management.Dialogs;
 using Students_Management.Menu;
 using Students_Management.Models;
 using Students_Management.Utils;
+using Students_Management.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -101,7 +102,7 @@ namespace Students_Management.ViewModels
                 new List<SubItem>
                 {
                     new SubItem("Danh sách người dùng"),
-                    new SubItem("Thêm người dùng"),
+                    new SubItem("Thêm người dùng", new AddUserUC()),
                     new SubItem("Danh sách chặn")
                 },
                 PackIconKind.User
