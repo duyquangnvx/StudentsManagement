@@ -30,14 +30,28 @@
       
         <materialDesign:ColorZone Mode="PrimaryMid" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock Text="{Binding Path=User.Username}" VerticalAlignment="Center"/>
-                <materialDesign:PopupBox StaysOpen="True" PlacementMode="RightAndAlignTopEdges"  VerticalAlignment="Center" Margin="10">
-                    <StackPanel Orientation="Vertical" Margin="8">
-                        <Button Content="Settings" Background="{x:Null}"/>
-                        <Separator/>
-                        <Button Content="Settings" Background="{x:Null}"/>
-                        <Separator/>
-                        <Button Content="Settings" Background="{x:Null}"/>
+                <TextBlock Text="{Binding Path=User.HoTen}" VerticalAlignment="Center"/>
+                <materialDesign:PopupBox  PlacementMode="RightAndAlignTopEdges"  VerticalAlignment="Center" Margin="10" >
+                    <StackPanel Orientation="Vertical" Margin="8"  TextElement.FontSize="16">
+                        <Button Background="{x:Null}">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="FaceProfile" Margin="0 0 20 0"/>
+                                <TextBlock Text="Thông tin cá nhân"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Background="{x:Null}">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Settings" Margin="0 0 20 0"/>
+                                <TextBlock Text="Cài đặt"/>
+                            </StackPanel>
+                        </Button>
+                        <Button Background="{x:Null}" Command="{Binding LogoutCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Logout" Margin="0 0 20 0"/>
+                                <TextBlock Text="Đăng xuất"/>
+                            </StackPanel>
+                        </Button>
+                        
                     </StackPanel>
                 </materialDesign:PopupBox>
             </StackPanel>

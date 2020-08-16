@@ -4,12 +4,15 @@ using Students_Management.Dialogs;
 using Students_Management.Menu;
 using Students_Management.Models;
 using Students_Management.Utils;
+using Students_Management.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Students_Management.ViewModels
 {
@@ -24,12 +27,40 @@ namespace Students_Management.ViewModels
         /// Màn hình đang hiển thị
         /// </summary>
         public UserControl CurrentItemMenuUC { get; set; }
+
+        public ICommand LogoutCommand { get; set; }
+        public ICommand ProfileCommand { get; set; }
         public MainViewModel()
         {
             User = DataProvider.Instance.My;
-            InitMenu(); 
+            InitMenu();
+
+            InitCommands();
         }
 
+        private void InitCommands()
+        {
+            LogoutCommand = new RelayCommand<Window>(
+                (p) =>
+                {
+                    return User != null;
+                },
+                (p) =>
+                {
+                    // Xóa thông người dùng
+                    User = null;
+                    DataProvider.Instance.My = null;
+
+                    // Mở màn hình login
+                    LoginViewModel loginVM = new LoginViewModel();
+                    LoginWindow loginWd = new LoginWindow();
+                    loginWd.DataContext = loginVM;
+                    loginWd.Show();
+
+                    // Đóng màn hình chính
+                    p.Close();
+                });
+        }
 
         /// <summary>
         /// Khởi tạo menu tùy chọn dựa theo chức vụ của user
