@@ -117,6 +117,24 @@ namespace Students_Management.ViewModels
                 PackIconKind.Teacher
                 );
 
+            var classManagement = new ItemMenu("Quản lý lớp học",
+                new List<SubItem>
+                {
+                    new SubItem("Danh sách lớp học"),
+                    new SubItem("Thêm lớp học"),
+                },
+                PackIconKind.Teacher
+                );
+
+            var subjectManagement = new ItemMenu("Quản lý môn học",
+                new List<SubItem>
+                {
+                    new SubItem("Danh sách môn học"),
+                    new SubItem("Thêm môn học"),
+                },
+                PackIconKind.Teacher
+                );
+
             var reportManagement = new ItemMenu("Báo cáo",
                 new List<SubItem>
                 {
@@ -130,8 +148,6 @@ namespace Students_Management.ViewModels
                 new List<SubItem>
                 {
                     new SubItem("Quy định độ tuổi"),
-                    new SubItem("Quy định môn học"),
-                    new SubItem("Quy định lớp học")
                 },
                 PackIconKind.Ruler
                 );
@@ -140,6 +156,8 @@ namespace Students_Management.ViewModels
             {
                 new ItemMenuControl(userManagement, this),
                 new ItemMenuControl(teacherManagement, this),
+                new ItemMenuControl(classManagement, this),
+                new ItemMenuControl(subjectManagement, this),
                 new ItemMenuControl(reportManagement, this),
                 new ItemMenuControl(ruleManagement, this)
             };
