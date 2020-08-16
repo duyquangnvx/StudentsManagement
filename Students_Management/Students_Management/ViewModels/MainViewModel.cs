@@ -1,5 +1,6 @@
 ﻿using MaterialDesignThemes.Wpf;
 using Students_Management.Controls;
+using Students_Management.Dialogs;
 using Students_Management.Menu;
 using Students_Management.Models;
 using Students_Management.Utils;
@@ -23,15 +24,15 @@ namespace Students_Management.ViewModels
         /// Màn hình đang hiển thị
         /// </summary>
         public UserControl CurrentItemMenuUC { get; set; }
-        /// <summary>
-        /// Lớp học đang chủ nhiệm
-        /// </summary>
-        public LopHoc MyClass { get; set; }
-        /// <summary>
-        /// Danh sách lớp học được phân công giảng dạy
-        /// </summary>
-        public List<LopHoc> AssignmentClasses { get; set; }
 
+        /// <summary>
+        /// Danh sách lớp quản lý của Giáo Vụ
+        /// </summary>
+        public List<LopHoc> Classes { get; set; }
+        /// <summary>
+        /// Danh sách học sinh quản lý của Giáo vụ
+        /// </summary>
+        public List<HocSinh> Students { get; set; }
         public MainViewModel()
         {
             User = DataProvider.Instance.My;
@@ -63,45 +64,32 @@ namespace Students_Management.ViewModels
         /// </summary>
         private void InitTeacherMenu()
         {
-            LoadDataForTeacher();
-
-            List<SubItem> classes = null;
-            foreach (var i in AssignmentClasses)
-            {
-                SubItem subItem = new SubItem(i.TenLop);
-                classes.Add(subItem);
-            }
+            bool isSuperTeacher = DataProvider.Instance.DB.LopHocs.Any(c => c.IdGiaoVien == User.Id);
 
             // Menu danh sách lớp được phân công
-            var assignment = new ItemMenu("Phân công",
-                classes,
-                PackIconKind.CastEducation);
+            var assignmentMenu = new ItemMenu("Phân công",
+                new List<SubItem>
+                { 
+                    new SubItem("Danh sách lớp") , 
+                    new SubItem("Bảng điểm")
+                },
+                PackIconKind.ViewList);
 
             // Menu chủ nhiệm
-            var homeroom = new ItemMenu("Chủ nhiệm",
-                MyClass == null ? null : new List<SubItem> { new SubItem(MyClass.TenLop) },
+            var homeroomMenu = new ItemMenu("Chủ nhiệm",
+                isSuperTeacher == false ? null : new List<SubItem> 
+                { 
+                    new SubItem("Thông tin lớp học"),
+                    new SubItem("Danh sách học sinh"),
+                    new SubItem("Bảng điểm")
+                },
                 PackIconKind.Room);
 
             ItemMenus = new List<ItemMenuControl>
             {
-                new ItemMenuControl(assignment, this),
-                new ItemMenuControl(homeroom, this),
+                new ItemMenuControl(assignmentMenu, this),
+                new ItemMenuControl(homeroomMenu, this),
             };
-        }
-
-        /// <summary>
-        /// Lấy dữ liệu cần thiết cho Giáo Viên
-        /// </summary>
-        private void LoadDataForTeacher()
-        {
-            List<LopHoc> result = null;
-            result = DataProvider.Instance.DB.LopHocs.Where(c => c.GiaoVien.Id == DataProvider.Instance.My.Id).ToList();
-            if (result.Count > 0)
-            {
-                MyClass = result[0];
-            }
-
-            AssignmentClasses = DataProvider.Instance.DB.LopHocs.Where(c => c.IdGiaoVien == DataProvider.Instance.My.Id).ToList();
         }
 
         /// <summary>
@@ -109,15 +97,52 @@ namespace Students_Management.ViewModels
         /// </summary>
         private void InitAdminMenu()
         {
-            LoadDataForAdmin();
-        }
+            var userManagement = new ItemMenu("Quản lý người dùng",
+                new List<SubItem>
+                {
+                    new SubItem("Danh sách người dùng"),
+                    new SubItem("Thêm người dùng"),
+                    new SubItem("Danh sách chặn")
+                },
+                PackIconKind.User
+                );
 
-        /// <summary>
-        /// Lấy dữ liệu cần thiết cho Admin
-        /// </summary>
-        private void LoadDataForAdmin()
-        {
+            var teacherManagement = new ItemMenu("Quản lý giáo viên",
+                new List<SubItem>
+                {
+                    new SubItem("Danh sách giáo viên"),
+                    new SubItem("Phân công giảng dạy"),
+                    new SubItem("Phân công chủ nhiệm")
+                },
+                PackIconKind.Teacher
+                );
 
+            var reportManagement = new ItemMenu("Báo cáo",
+                new List<SubItem>
+                {
+                    new SubItem("Báo cáo tổng kết môn học"),
+                    new SubItem("Báo cáo tổng kết học kỳ")
+                },
+                PackIconKind.Report
+                );
+
+            var ruleManagement = new ItemMenu("Quy định",
+                new List<SubItem>
+                {
+                    new SubItem("Quy định độ tuổi"),
+                    new SubItem("Quy định môn học"),
+                    new SubItem("Quy định lớp học")
+                },
+                PackIconKind.Ruler
+                );
+
+            ItemMenus = new List<ItemMenuControl>
+            {
+                new ItemMenuControl(userManagement, this),
+                new ItemMenuControl(teacherManagement, this),
+                new ItemMenuControl(reportManagement, this),
+                new ItemMenuControl(ruleManagement, this)
+            };
         }
 
         /// <summary>
@@ -125,15 +150,27 @@ namespace Students_Management.ViewModels
         /// </summary>
         private void InitMinistryMenu()
         {
-            LoadDataForMinistry();
-        }
+            var studentMenu = new ItemMenu("Quản lý học sinh",
+                new List<SubItem> 
+                { 
+                    new SubItem("Danh sách học sinh"),
+                    new SubItem("Thêm học sinh")
+                },
+                PackIconKind.Room);
 
-        /// <summary>
-        /// Lấy dữ liệu cần thiết cho Giáo Vụ
-        /// </summary>
-        private void LoadDataForMinistry()
-        {
+            var classMenu = new ItemMenu("Quản lý lớp học",
+                new List<SubItem> 
+                { 
+                    new SubItem("Danh sách lớp"),
+                    new SubItem("Lập danh sách lớp")
+                },
+                PackIconKind.Class);
 
+            ItemMenus = new List<ItemMenuControl>
+            {
+                new ItemMenuControl(classMenu, this),
+                new ItemMenuControl(studentMenu, this),
+            };
         }
 
         /// <summary>

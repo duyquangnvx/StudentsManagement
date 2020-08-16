@@ -83,20 +83,12 @@
     </Compile>
     <Compile Include="Menu\ItemMenu.cs" />
     <Compile Include="Menu\SubItem.cs" />
-    <Compile Include="ViewModels\DialogViewModel.cs" />
-    <Compile Include="Dialogs\DialogWindow.xaml.cs">
-      <DependentUpon>DialogWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\MyMessageBox.cs" />
-    <Compile Include="Implement\LoginImpl.cs" />
-    <Compile Include="Interfaces\ILogin.cs" />
     <Compile Include="Models\BangDiem.cs">
       <DependentUpon>StudentsManagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ChucVu.cs">
       <DependentUpon>StudentsManagementModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Utils\DataProvider.cs" />
     <Compile Include="Models\GiaoVien.cs">
       <DependentUpon>StudentsManagementModel.tt</DependentUpon>
     </Compile>
@@ -124,23 +116,31 @@
     <Compile Include="Models\PhanCong.cs">
       <DependentUpon>StudentsManagementModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\StudentsManagementModel.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>StudentsManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>StudentsManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\DialogViewModel.cs" />
+    <Compile Include="Dialogs\DialogWindow.xaml.cs">
+      <DependentUpon>DialogWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\MyMessageBox.cs" />
+    <Compile Include="Implement\LoginImpl.cs" />
+    <Compile Include="Interfaces\ILogin.cs" />
+    <Compile Include="Utils\DataProvider.cs" />
     <Compile Include="Models\StudentsManagementModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StudentsManagementModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\StudentsManagementModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StudentsManagementModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\StudentsManagementModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StudentsManagementModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\User.cs">
-      <DependentUpon>StudentsManagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\ItemMenuViewModel.cs" />
@@ -220,8 +220,8 @@
     </Content>
     <Content Include="Models\StudentsManagementModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>StudentsManagementModel.edmx</DependentUpon>
       <LastGenOutput>StudentsManagementModel.cs</LastGenOutput>
+      <DependentUpon>StudentsManagementModel.edmx</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>
