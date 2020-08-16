@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="Students_Management.Views.Admin.TeacherListUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Students_Management.Views.Admin"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"             
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             DataContext="{StaticResource TeacherListVM}"
+             >
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid VerticalAlignment="Center" Grid.Column="0" Margin="5 0 0 0" HorizontalAlignment="Left">
+                <TextBlock Text="Danh sách học sinh" FontWeight="Bold" Foreground="{StaticResource PrimaryHueMidBrush}" FontSize="20"/>
+            </Grid>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBox Width="200" Margin="5 0 0 0" VerticalAlignment="Center" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                             materialDesign:HintAssist.Hint="Tên người dùng" 
+                             Text="{Binding SearchName, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button Margin="30 0 5 0" Foreground="White" Background="{StaticResource PrimaryHueMidBrush}" Command="{Binding SearchUserCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Margin="0 0 10 0"/>
+                        <TextBlock Text="Tìm kiếm" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="565*"/>
+                <ColumnDefinition Width="33*"/>
+                <ColumnDefinition Width="202*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid IsReadOnly="True" ItemsSource="{Binding Teachers}" Margin="5"
+                      CanUserSortColumns="True"
+                      CanUserAddRows="False"
+                      AutoGenerateColumns="False"
+                      materialDesign:DataGridAssist.CellPadding="13 8 8 8"
+                      materialDesign:DataGridAssist.ColumnHeaderPadding="8" Grid.ColumnSpan="3">
+                <DataGrid.Columns>
+                    <materialDesign:DataGridTextColumn Binding="{Binding Path=Id}" Header="ID"/>
+                    <materialDesign:DataGridTextColumn Binding="{Binding Path=User.HoTen}" Header="Họ Tên"/>
+                    <materialDesign:DataGridTextColumn Binding="{Binding Path=User.GioiTinh, Converter={StaticResource GenderConverter}}" Header="Giới Tính"/>
+                    <materialDesign:DataGridTextColumn Binding="{Binding Path=User.NgaySinh, Converter={StaticResource DateTimeConverter}}" Header="Ngày Sinh"/>
+                    <materialDesign:DataGridTextColumn Binding="{Binding Path=User.Email}" Header="Email"/>
+                    <materialDesign:DataGridTextColumn Binding="{Binding Path=User.DiaChi}" Header="Địa chỉ"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</UserControl>
