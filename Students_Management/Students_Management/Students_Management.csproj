@@ -78,13 +78,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\ClassInfoUC.xaml.cs">
+      <DependentUpon>ClassInfoUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ClassTranscriptUC.xaml.cs">
+      <DependentUpon>ClassTranscriptUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ItemMenuControl.xaml.cs">
       <DependentUpon>ItemMenuControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ProfileControl.xaml.cs">
       <DependentUpon>ProfileControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\StudentListUC.xaml.cs">
+      <DependentUpon>StudentListUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters\DateTimeConverter.cs" />
+    <Compile Include="Converters\FinalScoreConverter.cs" />
     <Compile Include="Converters\GenderConverter.cs" />
     <Compile Include="Converters\MultiParameterConverter.cs" />
     <Compile Include="Converters\SchoolYearConverter.cs" />
@@ -149,6 +159,8 @@
     <Compile Include="ViewModels\Admin\SubjectListViewModel.cs" />
     <Compile Include="ViewModels\Admin\TeacherListViewModel.cs" />
     <Compile Include="ViewModels\Admin\UserListViewModel.cs" />
+    <Compile Include="ViewModels\ClassInfoViewModel.cs" />
+    <Compile Include="ViewModels\ClassTranscriptViewModel.cs" />
     <Compile Include="ViewModels\DialogViewModel.cs" />
     <Compile Include="Dialogs\DialogWindow.xaml.cs">
       <DependentUpon>DialogWindow.xaml</DependentUpon>
@@ -161,6 +173,9 @@
     <Compile Include="ViewModels\ItemMenuViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\StudentListViewModel.cs" />
+    <Compile Include="ViewModels\Teacher\AssignmentClassListViewModel.cs" />
+    <Compile Include="ViewModels\Teacher\SubjectTranscriptViewModel.cs" />
     <Compile Include="Views\Admin\AddClassUC.xaml.cs">
       <DependentUpon>AddClassUC.xaml</DependentUpon>
     </Compile>
@@ -186,11 +201,29 @@
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Teacher\AssignmentClassListUC.xaml.cs">
+      <DependentUpon>AssignmentClassListUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Teacher\SubjectTranscriptUC.xaml.cs">
+      <DependentUpon>SubjectTranscriptUC.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\ClassInfoUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ClassTranscriptUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\ItemMenuControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ProfileControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\StudentListUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -242,6 +275,14 @@
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Teacher\AssignmentClassListUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Teacher\SubjectTranscriptUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

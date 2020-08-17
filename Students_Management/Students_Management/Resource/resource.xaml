@@ -4,7 +4,7 @@
                     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
                     xmlns:converter="clr-namespace:Students_Management.Converters"                    
                     xmlns:system="clr-namespace:System;assembly=mscorlib"
-    
+                    xmlns:TeacherViewModel="clr-namespace:Students_Management.ViewModels.Teacher"
     
                     >
 
@@ -20,6 +20,13 @@
     <ViewModel:AddClassViewModel x:Key="AddClassVM"/>
     <ViewModel:AssignSubjectTeacherForClass x:Key="AssignSubjectTeacherForClassVM"/>
     <ViewModel:ProfileViewModel x:Key="ProfileVM"/>
+    <ViewModel:ClassInfoViewModel x:Key="ClassInfoVM"/>
+    <ViewModel:StudentListViewModel x:Key="StudentListVM"/>
+    <ViewModel:ClassTranscriptViewModel x:Key="ClassTranscriptVM"/>
+    
+    <TeacherViewModel:AssignmentClassListViewModel x:Key="AssignmentClassListVM"/>
+    <TeacherViewModel:SubjectTranscriptViewModel x:Key="SubjectTranscriptVM"/>
+
     <converter:TwoRadioButtonConverter x:Key="TwoRadioButtonConverter"/>
     <converter:MultiParameterConverter x:Key="MultiParameterConverter"/>
     <converter:DateTimeConverter x:Key="DateTimeConverter"/>

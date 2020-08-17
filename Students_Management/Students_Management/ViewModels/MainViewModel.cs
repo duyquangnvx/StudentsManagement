@@ -4,8 +4,10 @@ using Students_Management.Dialogs;
 using Students_Management.Menu;
 using Students_Management.Models;
 using Students_Management.Utils;
+using Students_Management.ViewModels.Teacher;
 using Students_Management.Views;
 using Students_Management.Views.Admin;
+using Students_Management.Views.Teacher;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -106,24 +108,39 @@ namespace Students_Management.ViewModels
         /// </summary>
         private void InitTeacherMenu()
         {
-            bool isSuperTeacher = DataProvider.Instance.DB.LopHocs.Any(c => c.IdGiaoVien == User.Id);
-
+            LopHoc myClass = DataProvider.Instance.DB.LopHocs.Where(c => c.IdGiaoVien == User.Id).First();
+          
             // Menu danh sách lớp được phân công
             var assignmentMenu = new ItemMenu("Phân công",
                 new List<SubItem>
                 {
-                    new SubItem("Danh sách lớp") ,
-                    new SubItem("Bảng điểm")
+                    new SubItem("Danh sách lớp", new AssignmentClassListUC()
+                    {
+                        DataContext = new AssignmentClassListViewModel(User.Id)
+                    }) ,
+                    new SubItem("Bảng điểm", new SubjectTranscriptUC()
+                    {
+                        DataContext = new SubjectTranscriptViewModel(User.Id)
+                    })
                 },
                 PackIconKind.ViewList);
 
             // Menu chủ nhiệm
             var homeroomMenu = new ItemMenu("Chủ nhiệm",
-                isSuperTeacher == false ? null : new List<SubItem>
+                myClass == null ? null : new List<SubItem>
                 {
-                    new SubItem("Thông tin lớp học"),
-                    new SubItem("Danh sách học sinh"),
-                    new SubItem("Bảng điểm")
+                    new SubItem("Thông tin lớp học", new ClassInfoUC()
+                    {
+                        DataContext = new ClassInfoViewModel(myClass)
+                    }),
+                    new SubItem("Danh sách học sinh", new StudentListUC()
+                    {
+                        DataContext = new StudentListViewModel(myClass)
+                    }),
+                    new SubItem("Bảng điểm", new ClassTranscriptUC() 
+                    { 
+                        DataContext = new ClassTranscriptViewModel(myClass)
+                    })
                 },
                 PackIconKind.Room);
 
