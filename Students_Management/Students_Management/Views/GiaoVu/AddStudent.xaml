@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:Students_Management.Views.GiaoVu"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              DataContext="{StaticResource AddStudentVM}" Height="706.4"
              >
 
@@ -33,6 +34,7 @@
 
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
                     <RowDefinition Height="1*"></RowDefinition>
                     <RowDefinition Height="1*"></RowDefinition>
                     <RowDefinition Height="1*"></RowDefinition>
@@ -81,11 +83,25 @@
                 </StackPanel>
                 <StackPanel Grid.Row="5" Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Class" Margin="0 0 10 0" VerticalAlignment="Center"/>
+                    <ComboBox Name ="gradeBox" Width="256" Margin="5,22,10,22" VerticalAlignment="Center" 
+                             materialDesign:HintAssist.Hint="Khối"
+                             ItemsSource="{Binding Grades, Mode=TwoWay}" DisplayMemberPath="TenKhoi"  Height="50">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding GradeChangedCommand}" CommandParameter="{Binding ElementName=gradeBox}">
+
+                                </i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Grid.Row="6" Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Class" Margin="0 0 10 0" VerticalAlignment="Center"/>
                     <ComboBox Name ="comboBox" Width="256" Margin="5,22,10,22" VerticalAlignment="Center" 
                            
                              materialDesign:HintAssist.Hint="Lớp"
                               
-                             ItemsSource="{Binding Classes}" DisplayMemberPath="TenLop"  Height="50">
+                             ItemsSource="{Binding Classes, Mode=TwoWay}" DisplayMemberPath="TenLop"  Height="50">
                     </ComboBox>
                 </StackPanel>
             </Grid>
