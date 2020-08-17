@@ -59,6 +59,8 @@ namespace Students_Management.ViewModels
                     if (db.SaveChanges() > 0)
                     {
                         MyMessageBox.Show("thêm thành công");
+                        OnPropertyChanged("Classes");
+                        OnPropertyChanged("HocSinhs");
                     }
                     else
                     {
