@@ -53,6 +53,7 @@
                     <materialDesign:DataGridTextColumn Binding="{Binding Path=TenLop}" Header="Tên lớp"/>
                     <materialDesign:DataGridTextColumn Binding="{Binding Path=GiaoVien.User.HoTen}" Header="GVCN"/>
                     <materialDesign:DataGridTextColumn Binding="{Binding Path=Khoi.TenKhoi}" Header="Khối"/>
+                    <materialDesign:DataGridTextColumn Binding="{Binding Path=HocSinhs.Count}" Header="Sỉ số"/>
                     <materialDesign:DataGridTextColumn Binding="{Binding Path=NamHoc, Converter={StaticResource SchoolYearConverter}}" Header="Năm học"/>
                     <!--<materialDesign:DataGridTextColumn Binding="{Binding Path=GioiTinh, Converter={StaticResource GenderConverter}}" Header="Giới Tính"/>
                     <materialDesign:DataGridTextColumn Binding="{Binding Path=NgaySinh, Converter={StaticResource DateTimeConverter}}" Header="Ngày Sinh"/>
