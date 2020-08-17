@@ -29,6 +29,7 @@ namespace Students_Management.ViewModels
         public ICommand CancelCommand { get; set; }
         public ProfileViewModel()
         {
+            Roles = DataProvider.Instance.DB.ChucVus.ToList();
             Title = "Thông tin cá nhân";
             IsEditing = false;
             InitCommands();
@@ -37,6 +38,7 @@ namespace Students_Management.ViewModels
         public ProfileViewModel(User user) : this()
         {
             User = user;
+            SelectedRole = Roles.Where(r => r.Id == User.IdChucVu).FirstOrDefault();
         }
 
         private void InitCommands()
@@ -81,7 +83,6 @@ namespace Students_Management.ViewModels
                     MainViewModel.Instance.User = User;
 
                     OnPropertyChanged(nameof(MainViewModel.Instance.User));
-                    MyMessageBox.Show(nameof(MainViewModel.Instance.User.HoTen));
                 });
         }
     }

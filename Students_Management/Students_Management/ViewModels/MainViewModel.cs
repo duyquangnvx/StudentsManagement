@@ -35,10 +35,12 @@ namespace Students_Management.ViewModels
         public ICommand ProfileCommand { get; set; }
         public MainViewModel()
         {
-            User = new User()
-            {
-                ChucVu = new ChucVu() { TenChucVu = "Admin", Id = 1 }
-            };//DataProvider.Instance.My;
+            Instance = this;
+            //User = new User()
+            //{
+            //    ChucVu = new ChucVu() { TenChucVu = "Admin", Id = 1 }
+            //};//DataProvider.Instance.My;
+            User = DataProvider.Instance.My;
 
             InitMenu();
             InitCommands();

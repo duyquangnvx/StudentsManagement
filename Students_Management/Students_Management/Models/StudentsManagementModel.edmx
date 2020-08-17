@@ -72,16 +72,16 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="TenKhoi" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="LopHoc">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenLop" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="IdGiaoVien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdGiaoVien" Type="int" />
           <Property Name="IdKhoi" Type="int" />
           <Property Name="IdNamHoc" Type="int" />
         </EntityType>
@@ -119,9 +119,11 @@
           <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="HoTen" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="DiaChi" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="NgaySinh" Type="date" />
           <Property Name="GioiTinh" Type="bit" Nullable="false" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="200" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
           <Property Name="IdChucVu" Type="int" Nullable="false" />
           <Property Name="IsDelete" Type="bit" />
           <Property Name="CreateOn" Type="datetime" />
@@ -223,7 +225,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LopHoc_GiaoVien">
-          <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="1" />
+          <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="0..1" />
           <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="GiaoVien">
@@ -458,7 +460,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="TenKhoi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="LopHocs" Relationship="Self.FK_LopHoc_Khoi" FromRole="Khoi" ToRole="LopHoc" />
         </EntityType>
@@ -466,9 +468,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenLop" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IdGiaoVien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdGiaoVien" Type="Int32" />
           <Property Name="IdKhoi" Type="Int32" />
           <Property Name="IdNamHoc" Type="Int32" />
           <NavigationProperty Name="GiaoVien" Relationship="Self.FK_LopHoc_GiaoVien" FromRole="LopHoc" ToRole="GiaoVien" />
@@ -518,9 +520,11 @@
           <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DiaChi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
           <Property Name="GioiTinh" Type="Boolean" Nullable="false" />
+          <Property Name="DiaChi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="IdChucVu" Type="Int32" Nullable="false" />
           <Property Name="IsDelete" Type="Boolean" />
           <Property Name="CreateOn" Type="DateTime" Precision="3" />
@@ -612,7 +616,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LopHoc_GiaoVien">
-          <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="1" />
+          <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="0..1" />
           <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="GiaoVien">
@@ -873,9 +877,11 @@
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="HoTen" ColumnName="HoTen" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
                 <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="IdChucVu" ColumnName="IdChucVu" />
                 <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
                 <ScalarProperty Name="CreateOn" ColumnName="CreateOn" />
