@@ -7,11 +7,8 @@ using Students_Management.Utils;
 using Students_Management.ViewModels.Teacher;
 using Students_Management.Views;
 using Students_Management.Views.Admin;
-<<<<<<< HEAD
 using Students_Management.Views.Teacher;
-=======
 using Students_Management.Views.GiaoVu;
->>>>>>> giao-vu
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -137,7 +134,7 @@ namespace Students_Management.ViewModels
                     {
                         DataContext = new ClassInfoViewModel(myClass)
                     }),
-                    new SubItem("Danh sách học sinh", new StudentListUC()
+                    new SubItem("Danh sách học sinh", new Controls.StudentListUC()
                     {
                         DataContext = new StudentListViewModel(myClass)
                     }),
@@ -234,7 +231,7 @@ namespace Students_Management.ViewModels
             var studentMenu = new ItemMenu("Quản lý học sinh",
                 new List<SubItem>
                 {
-                    new SubItem("Danh sách học sinh", new StudentListUC()),
+                    new SubItem("Danh sách học sinh", new Views.GiaoVu.StudentListUC()),
                     new SubItem("Thêm học sinh", new AddStudent())
                 },
                 PackIconKind.Room);

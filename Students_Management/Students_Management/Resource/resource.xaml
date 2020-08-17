@@ -20,18 +20,16 @@
     <ViewModel:AddClassViewModel x:Key="AddClassVM"/>
     <ViewModel:AssignSubjectTeacherForClass x:Key="AssignSubjectTeacherForClassVM"/>
     <ViewModel:ProfileViewModel x:Key="ProfileVM"/>
-<<<<<<< HEAD
     <ViewModel:ClassInfoViewModel x:Key="ClassInfoVM"/>
     <ViewModel:StudentListViewModel x:Key="StudentListVM"/>
+    <ViewModel:StudentListViewModelMinistry x:Key="StudentListVMM"/>
     <ViewModel:ClassTranscriptViewModel x:Key="ClassTranscriptVM"/>
     <ViewModel:ForgotPasswordViewModel x:Key="ForgotPasswordVM"/>
     <TeacherViewModel:AssignmentClassListViewModel x:Key="AssignmentClassListVM"/>
     <TeacherViewModel:SubjectTranscriptViewModel x:Key="SubjectTranscriptVM"/>
 
-=======
+
     <ViewModel:AddStudentViewModel x:Key="AddStudentVM"/>
-    <ViewModel:StudentListViewModel  x:Key="StudentListVM"/>
->>>>>>> giao-vu
     <converter:TwoRadioButtonConverter x:Key="TwoRadioButtonConverter"/>
     <converter:MultiParameterConverter x:Key="MultiParameterConverter"/>
     <converter:DateTimeConverter x:Key="DateTimeConverter"/>

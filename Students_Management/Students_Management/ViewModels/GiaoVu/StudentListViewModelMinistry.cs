@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace Students_Management.ViewModels
 {
-    class StudentListViewModel : BaseViewModel
+    public class StudentListViewModelMinistry : BaseViewModel
     {
 
         private List<HocSinh> hocSinhs;
@@ -52,7 +52,7 @@ namespace Students_Management.ViewModels
         public ICommand SearchStudentCommand { get; set; }
         public ICommand searchKhoiChangedCommand { get; set; }
         public ICommand searchLopChangedCommand { get; set; }
-        public StudentListViewModel()
+        public StudentListViewModelMinistry()
         {
             HocSinhs = allStudents;
             allKhoi = new Khoi();
