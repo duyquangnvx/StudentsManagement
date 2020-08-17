@@ -2,7 +2,7 @@
 GO
 /****** Object:  Database [StudentManagement]    Script Date: 8/17/2020 11:38:10 AM ******/
 
-drop database if exists [StudentManagement]
+drop database [StudentManagement]
 go
 
 CREATE DATABASE [StudentManagement]
@@ -322,12 +322,15 @@ INSERT [dbo].[Khoi] ([Id], [TenKhoi]) VALUES (11, N'Khối 11')
 INSERT [dbo].[Khoi] ([Id], [TenKhoi]) VALUES (12, N'Khối 12')
 SET IDENTITY_INSERT [dbo].[LopHoc] ON 
 
-INSERT [dbo].[LopHoc] ([Id], [TenLop], [IdGiaoVien], [IdKhoi], [IdNamHoc]) VALUES (1, N'10A1', NULL, 10, 1)
-INSERT [dbo].[LopHoc] ([Id], [TenLop], [IdGiaoVien], [IdKhoi], [IdNamHoc]) VALUES (2, N'10A2', 2003, 10, 1)
-INSERT [dbo].[LopHoc] ([Id], [TenLop], [IdGiaoVien], [IdKhoi], [IdNamHoc]) VALUES (3, N'11A1', NULL, 11, 1)
-INSERT [dbo].[LopHoc] ([Id], [TenLop], [IdGiaoVien], [IdKhoi], [IdNamHoc]) VALUES (4, N'11A2', NULL, 11, 1)
-INSERT [dbo].[LopHoc] ([Id], [TenLop], [IdGiaoVien], [IdKhoi], [IdNamHoc]) VALUES (5, N'12A1', NULL, 12, 1)
-INSERT [dbo].[LopHoc] ([Id], [TenLop], [IdGiaoVien], [IdKhoi], [IdNamHoc]) VALUES (6, N'12A2', NULL, 12, 1)
+INSERT [dbo].[LopHoc] ([Id], [TenLop], [IdGiaoVien], [IdKhoi], [IdNamHoc]) VALUES (1, N'K10 - Chưa phân lớp', NULL, 10, NULL)
+INSERT [dbo].[LopHoc] ([Id], [TenLop], [IdGiaoVien], [IdKhoi], [IdNamHoc]) VALUES (2, N'K11 - Chưa phân lớp', NULL, 11, NULL)
+INSERT [dbo].[LopHoc] ([Id], [TenLop], [IdGiaoVien], [IdKhoi], [IdNamHoc]) VALUES (3, N'K12 - Chưa phân lớp', NULL, 12, NULL)
+INSERT [dbo].[LopHoc] ([Id], [TenLop], [IdGiaoVien], [IdKhoi], [IdNamHoc]) VALUES (4, N'10A1', NULL, 10, 1)
+INSERT [dbo].[LopHoc] ([Id], [TenLop], [IdGiaoVien], [IdKhoi], [IdNamHoc]) VALUES (5, N'10A2', 2003, 10, 1)
+INSERT [dbo].[LopHoc] ([Id], [TenLop], [IdGiaoVien], [IdKhoi], [IdNamHoc]) VALUES (6, N'11A1', NULL, 11, 1)
+INSERT [dbo].[LopHoc] ([Id], [TenLop], [IdGiaoVien], [IdKhoi], [IdNamHoc]) VALUES (7, N'11A2', NULL, 11, 1)
+INSERT [dbo].[LopHoc] ([Id], [TenLop], [IdGiaoVien], [IdKhoi], [IdNamHoc]) VALUES (8, N'12A1', NULL, 12, 1)
+INSERT [dbo].[LopHoc] ([Id], [TenLop], [IdGiaoVien], [IdKhoi], [IdNamHoc]) VALUES (9, N'12A2', NULL, 12, 1)
 SET IDENTITY_INSERT [dbo].[LopHoc] OFF
 SET IDENTITY_INSERT [dbo].[MonHoc] ON 
 
