@@ -25,7 +25,7 @@
             <Grid VerticalAlignment="Center" Grid.Column="0" Margin="5 0 0 0" HorizontalAlignment="Left">
                 <TextBlock Text="Danh sách học sinh" FontWeight="Bold" Foreground="{StaticResource PrimaryHueMidBrush}" FontSize="20"/>
             </Grid>
-           
+
         </Grid>
 
         <Grid Grid.Row="1">
@@ -52,7 +52,7 @@
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
                             <i:InvokeCommandAction Command="{Binding searchKhoiChangedCommand}" CommandParameter="{Binding ElementName=gradeBox}">
-                                
+
                             </i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
@@ -79,13 +79,20 @@
                 <ColumnDefinition Width="33*"/>
                 <ColumnDefinition Width="202*"/>
             </Grid.ColumnDefinitions>
-            <DataGrid IsReadOnly="True" ItemsSource="{Binding HocSinhs}" Margin="5"
+            <DataGrid IsReadOnly="True" ItemsSource="{Binding HocSinhs, Mode=TwoWay}" Margin="5"
+                      SelectedItem="{Binding selectedStudent}"
                       CanUserSortColumns="True"
                       CanUserAddRows="False"
                       ScrollViewer.CanContentScroll="True" 
                       AutoGenerateColumns="False"
                       materialDesign:DataGridAssist.CellPadding="13 8 8 8"
-                      materialDesign:DataGridAssist.ColumnHeaderPadding="8" Grid.ColumnSpan="5">
+                      materialDesign:DataGridAssist.ColumnHeaderPadding="8" Grid.ColumnSpan="5" >
+                <DataGrid.InputBindings>
+                    <MouseBinding
+            MouseAction="LeftDoubleClick"
+            Command="{Binding DoubleClickCommand}"
+            CommandParameter="{Binding HocSinhs}"/>
+                </DataGrid.InputBindings>
                 <DataGrid.Columns>
                     <materialDesign:DataGridTextColumn Binding="{Binding Path=Id}" Header="ID"/>
                     <materialDesign:DataGridTextColumn Binding="{Binding Path=HoTen}" Header="Họ Tên"/>

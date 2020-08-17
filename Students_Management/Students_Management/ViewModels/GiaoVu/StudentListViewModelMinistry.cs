@@ -1,5 +1,7 @@
-﻿using Students_Management.Models;
+﻿using Students_Management.Dialogs;
+using Students_Management.Models;
 using Students_Management.Utils;
+using Students_Management.Views.GiaoVu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +25,7 @@ namespace Students_Management.ViewModels
         private List<LopHoc> searchLopHoc;
         private Khoi selectedGrade = null;
         private LopHoc selectedClass = null;
-        
+        public HocSinh selectedStudent { get; set; }
         public List<LopHoc> SearchLopHoc
         {
             get { return searchLopHoc; }
@@ -52,6 +54,7 @@ namespace Students_Management.ViewModels
         public ICommand SearchStudentCommand { get; set; }
         public ICommand searchKhoiChangedCommand { get; set; }
         public ICommand searchLopChangedCommand { get; set; }
+        public ICommand DoubleClickCommand { get; set; }
         public StudentListViewModelMinistry()
         {
             HocSinhs = allStudents;
@@ -116,6 +119,13 @@ namespace Students_Management.ViewModels
                 OnPropertyChanged("SearchLopHoc");
                 HocSinhs = searchStudent(searchName);
             });
+
+            DoubleClickCommand = new RelayCommand<Object>((p) => true, (p) =>
+           {
+               EditStudent editStudent = new EditStudent();
+               editStudent.DataContext = new EditStudentViewModel(selectedStudent);
+               editStudent.Show();
+           });
         }
 
         List<HocSinh> searchStudent(String name)
