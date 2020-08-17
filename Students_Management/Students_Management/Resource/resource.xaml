@@ -20,6 +20,8 @@
     <ViewModel:AddClassViewModel x:Key="AddClassVM"/>
     <ViewModel:AssignSubjectTeacherForClass x:Key="AssignSubjectTeacherForClassVM"/>
     <ViewModel:ProfileViewModel x:Key="ProfileVM"/>
+    <ViewModel:AddStudentViewModel x:Key="AddStudentVM"/>
+    <ViewModel:StudentListViewModel  x:Key="StudentListVM"/>
     <converter:TwoRadioButtonConverter x:Key="TwoRadioButtonConverter"/>
     <converter:MultiParameterConverter x:Key="MultiParameterConverter"/>
     <converter:DateTimeConverter x:Key="DateTimeConverter"/>
