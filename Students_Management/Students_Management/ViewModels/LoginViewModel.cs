@@ -1,4 +1,5 @@
 ﻿using Students_Management.Implement;
+using Students_Management.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -60,7 +61,8 @@ namespace Students_Management.ViewModels
                 (p) => { return true; },
                 (p) => 
                 {
-                    // Mở màn hình quên mật khẩu
+                    ForgotPasswordWindow forgot = new ForgotPasswordWindow();
+                    forgot.ShowDialog();
                 });
         }
     }
