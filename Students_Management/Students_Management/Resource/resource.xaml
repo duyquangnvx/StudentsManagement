@@ -4,9 +4,7 @@
                     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
                     xmlns:converter="clr-namespace:Students_Management.Converters"                    
                     xmlns:system="clr-namespace:System;assembly=mscorlib"
-                    xmlns:TeacherViewModel="clr-namespace:Students_Management.ViewModels.Teacher"
-    
-                    >
+                    xmlns:TeacherViewModel="clr-namespace:Students_Management.ViewModels.Teacher" xmlns:ViewModel1="clr-namespace:Students_Management.ViewModels.GiaoVu">
 
     <!-- List ViewModel -->
     <ViewModel:LoginViewModel x:Key="LoginVM"/>
@@ -24,6 +22,7 @@
     <ViewModel:StudentListViewModel x:Key="StudentListVM"/>
     <ViewModel:StudentListViewModelMinistry x:Key="StudentListVMM"/>
     <ViewModel:ClassTranscriptViewModel x:Key="ClassTranscriptVM"/>
+    <ViewModel:EditStudentViewModel x:Key="EditStudentVM"/>
     <ViewModel:ForgotPasswordViewModel x:Key="ForgotPasswordVM"/>
     <TeacherViewModel:AssignmentClassListViewModel x:Key="AssignmentClassListVM"/>
     <TeacherViewModel:SubjectTranscriptViewModel x:Key="SubjectTranscriptVM"/>
