@@ -11,7 +11,8 @@ namespace Students_Management.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Linq;
+
     public partial class HocSinh
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,17 +21,35 @@ namespace Students_Management.Models
             this.BangDiems = new HashSet<BangDiem>();
             this.LopHocs = new HashSet<LopHoc>();
         }
-    
+
         public int Id { get; set; }
         public string HoTen { get; set; }
         public string DiaChi { get; set; }
         public string Email { get; set; }
         public System.DateTime NgaySinh { get; set; }
         public bool GioiTinh { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BangDiem> BangDiems { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LopHoc> LopHocs { get; set; }
+
+        public virtual LopHoc LopHoc { get { if (LopHocs.Count > 0) { return LopHocs.Last(); } return null; } }
+
+        public HocSinh Clone()
+        {
+            HocSinh hs = new HocSinh();
+            hs.Id = this.Id;
+            hs.HoTen = (string)this.HoTen.Clone();
+            hs.DiaChi = (string)this.DiaChi.Clone();
+            hs.Email = (string)this.Email.Clone();
+            hs.NgaySinh = (System.DateTime)NgaySinh;
+            hs.GioiTinh = this.GioiTinh;
+            hs.BangDiems = this.BangDiems;
+            hs.LopHocs = this.LopHocs;
+
+            return hs;
+        }
+
     }
 }
