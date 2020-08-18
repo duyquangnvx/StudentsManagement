@@ -1,0 +1,88 @@
+﻿<Window x:Class="Students_Management.Views.GiaoVu.ClassStudentList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Students_Management.Views.GiaoVu"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             DataContext="{StaticResource ClassStudentListVM}"
+             >
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid VerticalAlignment="Center" Grid.Column="0" Margin="5 0 0 0" HorizontalAlignment="Left">
+                <TextBlock Text="Danh sách học sinh" FontWeight="Bold" Foreground="{StaticResource PrimaryHueMidBrush}" FontSize="20"/>
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBox Width="200" Margin="5 0 0 0" VerticalAlignment="Center" 
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                             materialDesign:HintAssist.Hint="Tên học sinh" 
+                             Text="{Binding SearchName, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button Margin="30 0 5 0" Foreground="White" Background="{StaticResource PrimaryHueMidBrush}" Command="{Binding SearchStudentCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Margin="0 0 10 0"/>
+                        <TextBlock Text="Tìm kiếm" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+           
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="233*"/>
+                <ColumnDefinition Width="218*"/>
+                <ColumnDefinition Width="114*"/>
+                <ColumnDefinition Width="33*"/>
+                <ColumnDefinition Width="202*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid IsReadOnly="True" ItemsSource="{Binding HocSinhs, Mode=TwoWay}" Margin="5"
+                      SelectedItem="{Binding selectedStudent}"
+                      CanUserSortColumns="True"
+                      CanUserAddRows="False"
+                      ScrollViewer.CanContentScroll="True" 
+                      AutoGenerateColumns="False"
+                      materialDesign:DataGridAssist.CellPadding="13 8 8 8"
+                      materialDesign:DataGridAssist.ColumnHeaderPadding="8" Grid.ColumnSpan="5" >
+                <DataGrid.InputBindings>
+                    <MouseBinding
+            MouseAction="LeftDoubleClick"
+            Command="{Binding DoubleClickCommand}"
+            CommandParameter="{Binding HocSinhs}"/>
+                </DataGrid.InputBindings>
+                <DataGrid.Columns>
+                    <materialDesign:DataGridTextColumn Binding="{Binding Path=Id}" Header="ID"/>
+                    <materialDesign:DataGridTextColumn Binding="{Binding Path=HoTen}" Header="Họ Tên"/>
+                    <materialDesign:DataGridTextColumn Binding="{Binding Path=LopHoc.TenLop}" Header="Lớp"/>
+
+                    <materialDesign:DataGridTextColumn Binding="{Binding Path=GioiTinh, Converter={StaticResource GenderConverter}}" Header="Giới Tính"/>
+                    <materialDesign:DataGridTextColumn Binding="{Binding Path=NgaySinh, Converter={StaticResource DateTimeConverter}}" Header="Ngày Sinh"/>
+                    <materialDesign:DataGridTextColumn Binding="{Binding Path=Email}" Header="Email"/>
+                    <materialDesign:DataGridTextColumn Binding="{Binding Path=DiaChi}" Header="Địa chỉ"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Window>
+

@@ -1,5 +1,7 @@
-﻿using Students_Management.Models;
+﻿using MaterialDesignThemes.Wpf;
+using Students_Management.Models;
 using Students_Management.Utils;
+using Students_Management.Views.GiaoVu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +11,7 @@ using System.Windows.Input;
 
 namespace Students_Management.ViewModels
 {
-    class ClassListViewModel: BaseViewModel
+    class ClassListViewModel : BaseViewModel
     {
         private List<LopHoc> classes;
         public List<LopHoc> Classes { get => classes; set { classes = value; OnPropertyChanged(); } }
@@ -17,6 +19,7 @@ namespace Students_Management.ViewModels
         private List<LopHoc> allSubject = DataProvider.Instance.DB.LopHocs.ToList();
 
         private String searchName;
+        public LopHoc SelectedClass { get; set; }
         public String SearchName
         {
             get { return searchName; }
@@ -28,7 +31,7 @@ namespace Students_Management.ViewModels
             }
         }
         public ICommand SearchUserCommand { get; set; }
-
+        public ICommand DoubleClickCommand { get; set; }
         public ClassListViewModel()
         {
             Classes = allSubject;
@@ -42,6 +45,15 @@ namespace Students_Management.ViewModels
                 (p) =>
                 {
                     Classes = searchUser(searchName);
+                });
+
+            DoubleClickCommand = new RelayCommand<Object>(
+                (p) => { return true; },
+                (p) =>
+                {
+                    var window = new ClassStudentList();
+                    window.DataContext = new ClassStudentListViewModel(SelectedClass);
+                    window.Show();
                 });
         }
 
