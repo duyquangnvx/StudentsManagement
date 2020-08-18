@@ -240,7 +240,7 @@ namespace Students_Management.ViewModels
                 new List<SubItem>
                 {
                     new SubItem("Danh sách lớp", new ClassListUC()),
-                    new SubItem("Lập danh sách lớp")
+                    new SubItem("Lập danh sách lớp", new GenerateClassListUC())
                 },
                 PackIconKind.Class);
 

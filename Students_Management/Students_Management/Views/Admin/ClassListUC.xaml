@@ -25,7 +25,7 @@
             <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBox Width="200" Margin="5 0 0 0" VerticalAlignment="Center" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                             materialDesign:HintAssist.Hint="Tên người dùng" 
+                             materialDesign:HintAssist.Hint="Tên Lớp" 
                              Text="{Binding SearchName, UpdateSourceTrigger=PropertyChanged}"/>
                 <Button Margin="30 0 5 0" Foreground="White" Background="{StaticResource PrimaryHueMidBrush}" Command="{Binding SearchUserCommand}">
                     <StackPanel Orientation="Horizontal">
@@ -44,11 +44,18 @@
                 <ColumnDefinition Width="202*"/>
             </Grid.ColumnDefinitions>
             <DataGrid IsReadOnly="True" ItemsSource="{Binding Classes}" Margin="5"
+                       SelectedItem="{Binding SelectedClass}"
                       CanUserSortColumns="True"
                       CanUserAddRows="False"
                       AutoGenerateColumns="False"
                       materialDesign:DataGridAssist.CellPadding="13 8 8 8"
                       materialDesign:DataGridAssist.ColumnHeaderPadding="8" Grid.ColumnSpan="4">
+                <DataGrid.InputBindings>
+                    <MouseBinding
+            MouseAction="LeftDoubleClick"
+            Command="{Binding DoubleClickCommand}"
+            CommandParameter="{Binding Classes}"/>
+                </DataGrid.InputBindings>
                 <DataGrid.Columns>
                     <materialDesign:DataGridTextColumn Binding="{Binding Path=TenLop}" Header="Tên lớp"/>
                     <materialDesign:DataGridTextColumn Binding="{Binding Path=GiaoVien.User.HoTen}" Header="GVCN"/>
