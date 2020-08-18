@@ -23,6 +23,8 @@
     <ViewModel:StudentListViewModelMinistry x:Key="StudentListVMM"/>
     <ViewModel:ClassTranscriptViewModel x:Key="ClassTranscriptVM"/>
     <ViewModel:EditStudentViewModel x:Key="EditStudentVM"/>
+    <ViewModel:ClassStudentListViewModel x:Key="ClassStudentListVM"/>
+    <ViewModel:GenerateClassListViewModel x:Key="GenerateClassListVM"/>
     <ViewModel:ForgotPasswordViewModel x:Key="ForgotPasswordVM"/>
     <TeacherViewModel:AssignmentClassListViewModel x:Key="AssignmentClassListVM"/>
     <TeacherViewModel:SubjectTranscriptViewModel x:Key="SubjectTranscriptVM"/>

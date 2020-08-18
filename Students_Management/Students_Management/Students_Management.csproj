@@ -172,7 +172,9 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\ForgotPasswordViewModel.cs" />
     <Compile Include="ViewModels\GiaoVu\AddStudentViewModel.cs" />
+    <Compile Include="ViewModels\GiaoVu\ClassStudentListViewModel.cs" />
     <Compile Include="ViewModels\GiaoVu\EditStudentViewModel.cs" />
+    <Compile Include="ViewModels\GiaoVu\GenerateClassListViewModel.cs" />
     <Compile Include="ViewModels\GiaoVu\StudentListViewModelMinistry.cs" />
     <Compile Include="ViewModels\ItemMenuViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
@@ -208,8 +210,14 @@
     <Compile Include="Views\GiaoVu\AddStudent.xaml.cs">
       <DependentUpon>AddStudent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\GiaoVu\ClassStudentList.xaml.cs">
+      <DependentUpon>ClassStudentList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\GiaoVu\EditStudent.xaml.cs">
       <DependentUpon>EditStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GiaoVu\GenerateClassListUC.xaml.cs">
+      <DependentUpon>GenerateClassListUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\GiaoVu\StudentListUC.xaml.cs">
       <DependentUpon>StudentListUC.xaml</DependentUpon>
@@ -284,7 +292,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\GiaoVu\ClassStudentList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\GiaoVu\EditStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GiaoVu\GenerateClassListUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
