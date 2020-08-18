@@ -18,6 +18,7 @@ namespace Students_Management.ViewModels
         private Khoi gradeSelected = null;
         private LopHoc classSelected = null;
         public HocSinh HocSinh { get; set; }
+        private HocSinh rootStudent { get; set; }
         public Khoi GradeSelected
         {
             get { return gradeSelected; }
@@ -88,7 +89,8 @@ namespace Students_Management.ViewModels
         }
         public EditStudentViewModel(HocSinh hs) : base()
         {
-            HocSinh = hs;
+            HocSinh = hs.Clone();
+            rootStudent = hs;
             OnPropertyChanged("student");
 
             InitGradeClass();
@@ -131,14 +133,17 @@ namespace Students_Management.ViewModels
                         }
                     }
                     HocSinh.LopHocs.Add(comboBox.SelectedItem as LopHoc);
-                    
+                    HocSinh.LopHoc.HocSinhs.Remove(HocSinh);
                     var db = DataProvider.Instance.DB;
                     db.HocSinhs.AddOrUpdate(HocSinh);
                     if (db.SaveChanges() > 0)
                     {
+                        rootStudent = HocSinh;
                         MyMessageBox.Show("Cập nhật thành công");
                         OnPropertyChanged("Classes");
                         OnPropertyChanged("HocSinhs");
+                        OnPropertyChanged("selectedStudent");
+
                     }
                     else
                     {

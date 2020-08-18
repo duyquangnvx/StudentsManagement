@@ -64,7 +64,8 @@
                 </StackPanel>
                 <StackPanel Grid.Row="3" Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="AddressMarker" Margin="0 0 10 0" VerticalAlignment="Center"/>
-                    <TextBox Width="335" Margin="5,7,10,0" VerticalAlignment="Stretch" 
+                    <TextBox Width="318" Margin="5,7,10,0" VerticalAlignment="Stretch" 
+                             TextWrapping="Wrap"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              materialDesign:HintAssist.Hint="Địa chỉ" 
                              Text="{Binding HocSinh.DiaChi}"/>
