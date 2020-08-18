@@ -384,6 +384,14 @@ INSERT [dbo].[User] ([Id], [Username], [Password], [HoTen], [NgaySinh], [GioiTin
 INSERT [dbo].[User] ([Id], [Username], [Password], [HoTen], [NgaySinh], [GioiTinh], [DiaChi], [Phone], [Email], [IdChucVu], [IsDelete], [CreateOn]) VALUES (2003, N'unggiac', N'unggiac', N'Ung Giác', CAST(N'1995-10-15' AS Date), 0, N'0053, Thôn Dung Vũ, Xã Khâu, Quận Khiêm HậuKiên Giang', NULL, N'unggiac@gmail.com', 3, 0, CAST(N'2020-08-15T00:00:00.000' AS DateTime))
 INSERT [dbo].[User] ([Id], [Username], [Password], [HoTen], [NgaySinh], [GioiTinh], [DiaChi], [Phone], [Email], [IdChucVu], [IsDelete], [CreateOn]) VALUES (2004, N'duyquang01', N'duyquang', N'Vũ Duy Quanga', CAST(N'1999-03-29' AS Date), 0, N'189i/32A Tôn Thất Thuyết - Phường 3 - Quận 4 - TP.HCM', NULL, N'duyquangnvx@gmail.com', 3, 0, CAST(N'2020-08-16T20:06:08.633' AS DateTime))
 SET IDENTITY_INSERT [dbo].[User] OFF
+
+INSERT [dbo].[HocSinh_LopHoc] ([IdHocSinh], [IdLopHoc]) VALUES (3, 1)
+INSERT [dbo].[HocSinh_LopHoc] ([IdHocSinh], [IdLopHoc]) VALUES (5, 1)
+INSERT [dbo].[HocSinh_LopHoc] ([IdHocSinh], [IdLopHoc]) VALUES (6, 2)
+INSERT [dbo].[HocSinh_LopHoc] ([IdHocSinh], [IdLopHoc]) VALUES (7, 2)
+INSERT [dbo].[HocSinh_LopHoc] ([IdHocSinh], [IdLopHoc]) VALUES (8, 3)
+INSERT [dbo].[HocSinh_LopHoc] ([IdHocSinh], [IdLopHoc]) VALUES (9, 3)
+
 ALTER TABLE [dbo].[HocSinh] ADD  CONSTRAINT [DF_Student_Sex]  DEFAULT ((0)) FOR [GioiTinh]
 GO
 ALTER TABLE [dbo].[MonHoc] ADD  CONSTRAINT [DF_Subject_BenchMark]  DEFAULT ((5.0)) FOR [DiemChuan]
