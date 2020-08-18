@@ -38,7 +38,7 @@
             <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left">
                 <TextBox Width="200" Margin="5 0 0 0" VerticalAlignment="Center" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                             materialDesign:HintAssist.Hint="Tên người dùng" 
+                             materialDesign:HintAssist.Hint="Tên học sinh" 
                              Text="{Binding SearchName, UpdateSourceTrigger=PropertyChanged}"/>
                 <Button Margin="30 0 5 0" Foreground="White" Background="{StaticResource PrimaryHueMidBrush}" Command="{Binding SearchUserCommand}">
                     <StackPanel Orientation="Horizontal">
@@ -79,8 +79,8 @@
                 <ColumnDefinition Width="33*"/>
                 <ColumnDefinition Width="202*"/>
             </Grid.ColumnDefinitions>
-            <DataGrid IsReadOnly="True" ItemsSource="{Binding HocSinhs, Mode=TwoWay}" Margin="5"
-                      SelectedItem="{Binding selectedStudent}"
+            <DataGrid IsReadOnly="True" ItemsSource="{Binding HocSinhs, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5"
+                      SelectedItem="{Binding selectedStudent, Mode=TwoWay}"
                       CanUserSortColumns="True"
                       CanUserAddRows="False"
                       ScrollViewer.CanContentScroll="True" 
@@ -96,6 +96,8 @@
                 <DataGrid.Columns>
                     <materialDesign:DataGridTextColumn Binding="{Binding Path=Id}" Header="ID"/>
                     <materialDesign:DataGridTextColumn Binding="{Binding Path=HoTen}" Header="Họ Tên"/>
+                    <materialDesign:DataGridTextColumn Binding="{Binding Path=LopHoc.TenLop}" Header="Lớp"/>
+
                     <materialDesign:DataGridTextColumn Binding="{Binding Path=GioiTinh, Converter={StaticResource GenderConverter}}" Header="Giới Tính"/>
                     <materialDesign:DataGridTextColumn Binding="{Binding Path=NgaySinh, Converter={StaticResource DateTimeConverter}}" Header="Ngày Sinh"/>
                     <materialDesign:DataGridTextColumn Binding="{Binding Path=Email}" Header="Email"/>
